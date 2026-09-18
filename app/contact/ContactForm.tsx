@@ -4,9 +4,10 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { CheckCircle, AlertCircle } from "lucide-react";
+import { MessageCircle } from "lucide-react";
 import { Input, Textarea, Select } from "@/components/ui/FormFields";
 import { Button } from "@/components/ui/Button";
+import { WHATSAPP_NUMBER } from "@/lib/constants";
 
 const schema = z.object({
   name: z.string().min(2, "Please enter your full name"),
@@ -30,55 +31,38 @@ const interestOptions = [
 ];
 
 export function ContactForm() {
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "redirecting">("idle");
 
   const {
     register,
     handleSubmit,
-    reset,
     formState: { errors },
   } = useForm<FormData>({
     resolver: zodResolver(schema),
   });
 
-  const onSubmit = async (data: FormData) => {
-    setStatus("loading");
-    try {
-      const res = await fetch("/api/leads", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: data.name,
-          phone: data.phone,
-          email: data.email,
-          message: data.message,
-          project_slug: data.interest,
-          source_page: "/contact",
-        }),
-      });
+  const onSubmit = (data: FormData) => {
+    setStatus("redirecting");
 
-      if (!res.ok) throw new Error("Server error");
-      setStatus("success");
-      reset();
-    } catch {
-      setStatus("error");
-    }
+    const interestLabel =
+      interestOptions.find((o) => o.value === data.interest)?.label ?? data.interest;
+
+    const lines = [
+      "New enquiry from website:",
+      `Name: ${data.name}`,
+      `Phone: ${data.phone}`,
+      `Project: ${interestLabel}`,
+      `Message: ${data.message}`,
+    ];
+
+    const text = encodeURIComponent(lines.join("\n"));
+    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
+
+    window.open(url, "_blank");
+
+    // Re-enable button after 1 second to prevent double-submission
+    setTimeout(() => setStatus("idle"), 1000);
   };
-
-  if (status === "success") {
-    return (
-      <div className="flex flex-col items-center gap-4 py-10 text-center">
-        <CheckCircle size={48} className="text-green-500" />
-        <h3 className="font-serif text-2xl font-bold text-charcoal">
-          Message received!
-        </h3>
-        <p className="text-charcoal/70 max-w-sm">
-          Thank you for reaching out. We&apos;ll call you within 24 hours. You can also
-          reach us directly on WhatsApp for faster response.
-        </p>
-      </div>
-    );
-  }
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4" noValidate>
@@ -125,10 +109,10 @@ export function ContactForm() {
         error={errors.message?.message}
       />
 
-      {status === "error" && (
-        <div className="flex items-center gap-2 text-red-600 bg-red-50 rounded-lg px-4 py-3">
-          <AlertCircle size={16} />
-          <span className="text-sm">Something went wrong. Please call us directly.</span>
+      {status === "redirecting" && (
+        <div className="flex items-center gap-2 text-green-700 bg-green-50 rounded-lg px-4 py-3">
+          <MessageCircle size={16} />
+          <span className="text-sm">Redirecting you to WhatsApp...</span>
         </div>
       )}
 
@@ -136,9 +120,9 @@ export function ContactForm() {
         type="submit"
         size="lg"
         className="w-full mt-2"
-        disabled={status === "loading"}
+        disabled={status === "redirecting"}
       >
-        {status === "loading" ? "Sending..." : "Send Message"}
+        {status === "redirecting" ? "Opening WhatsApp..." : "Send Message on WhatsApp"}
       </Button>
     </form>
   );
