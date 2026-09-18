@@ -75,7 +75,7 @@ export default function HomePage() {
                 <ArrowRight size={18} className="ml-2" />
               </Button>
             </Link>
-            <a href="tel:[PLACEHOLDER]" className="group">
+            <a href="tel:+919359306709" className="group">
               <Button variant="secondary" size="lg" className="border-white text-white hover:bg-white hover:text-navy min-w-[200px]">
                 <Phone size={18} className="mr-2" />
                 Call Us Now
@@ -313,7 +313,7 @@ export default function HomePage() {
                 </Button>
               </Link>
               <a
-                href="https://wa.me/91XXXXXXXXXX?text=Hi%2C%20I%20am%20looking%20for%20plots%20in%20Nagpur"
+                href="https://wa.me/919359306709?text=Hi%2C%20I%20am%20looking%20for%20plots%20in%20Nagpur"
                 target="_blank"
                 rel="noopener noreferrer"
               >

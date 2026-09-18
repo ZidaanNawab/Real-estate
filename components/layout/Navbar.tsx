@@ -178,10 +178,10 @@ export function Navbar() {
                   </Button>
                 </Link>
                 <a
-                  href="tel:[PLACEHOLDER]"
+                  href="tel:+919359306709"
                   className="flex items-center justify-center gap-2 text-white/80 hover:text-white transition-colors py-2"
                 >
-                  <span className="text-sm">[PLACEHOLDER: +91-XXXXXXXXXX]</span>
+                  <span className="text-sm">+91 93593 06709</span>
                 </a>
               </div>
 

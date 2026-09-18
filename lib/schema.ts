@@ -12,7 +12,7 @@ export function localBusinessSchema() {
     description:
       "RERA-registered real estate broker in Nagpur specialising in residential plots across Wardha Road, Besa, MIHAN corridor, and Shankarpur.",
     url: siteUrl,
-    telephone: "[PLACEHOLDER: +91-XXXXXXXXXX]",
+    telephone: "+91-93593-06709",
     email: "[PLACEHOLDER: contact@yourdomain.com]",
     address: {
       "@type": "PostalAddress",

@@ -104,16 +104,16 @@ export function Footer() {
               <div className="flex items-center gap-3">
                 <Phone size={16} className="text-orange shrink-0" />
                 <a
-                  href="tel:[PLACEHOLDER]"
+                  href="tel:+919359306709"
                   className="text-white/70 hover:text-orange transition-colors text-sm"
                 >
-                  [PLACEHOLDER: +91-XXXXXXXXXX]
+                  +91 93593 06709
                 </a>
               </div>
               <div className="flex items-center gap-3">
                 <MessageCircle size={16} className="text-orange shrink-0" />
                 <a
-                  href="https://wa.me/91XXXXXXXXXX?text=Hi%2C%20I%20am%20interested%20in%20plots%20in%20Nagpur"
+                  href="https://wa.me/919359306709?text=Hi%2C%20I%20am%20interested%20in%20plots%20in%20Nagpur"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-white/70 hover:text-orange transition-colors text-sm"
@@ -147,7 +147,7 @@ export function Footer() {
 
       {/* WhatsApp floating button — mobile only */}
       <a
-        href="https://wa.me/91XXXXXXXXXX?text=Hi%2C%20I%20am%20interested%20in%20residential%20plots%20in%20Nagpur"
+        href="https://wa.me/919359306709?text=Hi%2C%20I%20am%20interested%20in%20residential%20plots%20in%20Nagpur"
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-6 right-4 z-40 flex items-center gap-2 bg-green-500 text-white rounded-full shadow-lg px-4 py-3 font-semibold text-sm hover:bg-green-600 transition-colors lg:hidden"

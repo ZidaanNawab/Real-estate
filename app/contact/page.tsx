@@ -68,10 +68,10 @@ export default function ContactPage() {
                     <div>
                       <p className="font-semibold text-charcoal mb-1">Phone</p>
                       <a
-                        href="tel:[PLACEHOLDER]"
+                        href="tel:+919359306709"
                         className="text-orange font-semibold text-lg hover:text-orange/80 transition-colors"
                       >
-                        [PLACEHOLDER: +91-XXXXXXXXXX]
+                        +91 93593 06709
                       </a>
                       <p className="text-charcoal/50 text-xs mt-0.5">Mon–Sat, 9am–7pm</p>
                     </div>
@@ -84,7 +84,7 @@ export default function ContactPage() {
                     <div>
                       <p className="font-semibold text-charcoal mb-1">WhatsApp</p>
                       <a
-                        href="https://wa.me/91XXXXXXXXXX?text=Hi%2C%20I%20am%20looking%20for%20residential%20plots%20in%20Nagpur"
+                        href="https://wa.me/919359306709?text=Hi%2C%20I%20am%20looking%20for%20residential%20plots%20in%20Nagpur"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-2 bg-green-500 text-white font-semibold px-4 py-2 rounded-lg hover:bg-green-600 transition-colors text-sm"
