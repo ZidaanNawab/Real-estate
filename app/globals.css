@@ -1,26 +1,90 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-navy: #241850;
+  --color-orange: #EE4D01;
+  --color-neutral: #F6F4EF;
+  --color-charcoal: #201A33;
+  --color-navy-light: #2e2066;
+  --font-serif: var(--font-fraunces), Georgia, serif;
+  --font-sans: var(--font-inter), system-ui, sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Explicit color utilities to guarantee exact hex values across all browsers */
+.bg-neutral {
+  background-color: #F6F4EF !important;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.text-charcoal {
+  color: #201A33 !important;
 }
 
+.bg-navy {
+  background-color: #241850;
+}
+
+.text-navy {
+  color: #241850;
+}
+
+.bg-orange {
+  background-color: #EE4D01;
+}
+
+.text-orange {
+  color: #EE4D01;
+}
+
+/* Skip to content link — shown on focus only */
+.skip-to-content {
+  @apply sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-orange focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focus:font-semibold;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+  background-color: #F6F4EF;
+}
+
+/* Body defaults — light neutral background with charcoal text everywhere */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #F6F4EF !important;
+  color: #201A33 !important;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+/* Heading defaults */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-fraunces), Georgia, serif;
+  color: #201A33;
+  line-height: 1.2;
+}
+
+/* Headings inside dark sections remain white */
+.bg-navy h1, .bg-navy h2, .bg-navy h3, .bg-navy h4, .bg-navy h5, .bg-navy h6,
+.bg-orange h1, .bg-orange h2, .bg-orange h3, .bg-orange h4, .bg-orange h5, .bg-orange h6,
+.text-white h1, .text-white h2, .text-white h3, .text-white h4, .text-white h5, .text-white h6 {
+  color: #ffffff;
+}
+
+/* Prose width for readability */
+.prose-content p {
+  max-width: 65ch;
+  color: #201A33;
+}
+
+/* Focus visible ring — override browser default */
+:focus-visible {
+  outline: 2px solid #EE4D01;
+  outline-offset: 2px;
+}
+
+/* Prevent layout shift on image containers */
+.img-container {
+  position: relative;
+  overflow: hidden;
 }
