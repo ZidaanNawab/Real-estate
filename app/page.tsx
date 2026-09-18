@@ -59,7 +59,7 @@ export default function HomePage() {
           <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.1] mb-6 animate-fade-in">
             Find Your Ideal
             <br />
-            <span className="text-orange">Plot in Nagpur</span>
+            <span className="text-orange">Plot in Naggpur</span>
           </h1>
 
           <p className="text-white/75 text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed animate-fade-in">
