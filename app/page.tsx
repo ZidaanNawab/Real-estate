@@ -3,12 +3,14 @@ import Link from "next/link";
 import { Phone, ArrowRight, Shield, MapPin, Star, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { ProjectCard } from "@/components/sections/ProjectCard";
+import { Badge } from "@/components/ui/Badge";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { buildMetadata } from "@/lib/metadata";
 import { projects } from "@/data/projects";
 import { testimonials } from "@/data/testimonials";
 import { locations } from "@/data/locations";
 import { TestimonialsCarousel } from "./TestimonialsCarousel";
+
 
 export const metadata = buildMetadata({
   title: "Real Estate Broker in Nagpur | Verified Plots & Properties",
@@ -18,10 +20,11 @@ export const metadata = buildMetadata({
 });
 
 const trustStats = [
-  { value: "500+", label: "Happy Clients" },
-  { value: "₹200Cr+", label: "Worth of Properties Sold" },
-  { value: "15+", label: "Years in Nagpur Real Estate" },
-  { value: "RERA", label: "Registered & Verified" },
+  { value: "8,000+", label: "Happy Clients" },
+  // PLACEHOLDER — confirm exact label with client, e.g. "Worth of Projects Delivered" or "Investment Value Facilitated"
+  { value: "₹500 Cr+", label: "Worth of Projects Delivered" },
+  { value: "8,000+", label: "Families Trusted" },
+  { value: "7+", label: "Years of Experience" },
 ];
 
 export default function HomePage() {
@@ -34,19 +37,39 @@ export default function HomePage() {
         className="relative min-h-screen flex items-center justify-center overflow-hidden bg-navy"
         aria-label="Hero section"
       >
-        {/* Background image — priority LCP */}
+        {/* Background video — loads behind hero text, does not block LCP */}
         <div className="absolute inset-0">
-          <Image
-            src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&q=80"
-            alt="Residential land and properties in Nagpur, Maharashtra"
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover opacity-30"
-            quality={85}
+          {/*
+            ── VIDEO PLACEHOLDER ──────────────────────────────────────────────
+            Drop the real hero video file at: /public/videos/hero.mp4
+            Then update the src below from "/videos/hero-placeholder.mp4"
+            to "/videos/hero.mp4" and remove this comment block.
+
+            Also replace the poster with the actual first-frame image:
+              poster="/videos/hero-poster.jpg"
+            (export a JPEG from the first frame of the video)
+            ──────────────────────────────────────────────────────────────────
+          */}
+          {/* Dark navy gradient shown while video loads (acts as poster) */}
+          <div className="absolute inset-0 bg-gradient-to-br from-navy via-navy/90 to-navy/80 flex items-center justify-center">
+            <p className="text-white/20 text-xs font-mono tracking-widest select-none">
+              [VIDEO PLACEHOLDER — add hero video file here]
+            </p>
+          </div>
+          {/* HTML5 video — muted+autoPlay+loop+playsInline required for mobile autoplay */}
+          <video
+            src="/videos/hero-placeholder.mp4"
+            poster="/videos/hero-poster.jpg"
+            autoPlay
+            muted
+            loop
+            playsInline
+            aria-hidden="true"
+            className="absolute inset-0 w-full h-full object-cover opacity-30"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-navy/70 via-navy/50 to-navy/80" />
         </div>
+
 
         {/* Hero content — animates in-place (opacity only, no position shift) */}
         <div className="relative z-10 mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 text-center py-32">
@@ -147,8 +170,76 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ── UPCOMING PROJECTS ── */}
+      <section className="py-20 bg-white" aria-labelledby="upcoming-heading">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <AnimatedSection>
+            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
+              <div>
+                <p className="text-orange text-sm font-semibold uppercase tracking-widest mb-2">
+                  Coming Soon
+                </p>
+                <h2
+                  id="upcoming-heading"
+                  className="font-serif text-3xl sm:text-4xl font-bold text-charcoal"
+                >
+                  Upcoming Projects
+                </h2>
+                <p className="text-charcoal/60 mt-2 max-w-xl">
+                  Launching soon across Nagpur.
+                </p>
+              </div>
+            </div>
+          </AnimatedSection>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              { name: "Mauli The Arc" },
+              { name: "Mauli Niwasa Phase 2" },
+              { name: "Dongar Gaon" },
+            ].map((project, i) => (
+              <AnimatedSection key={project.name} delay={i * 0.1}>
+                <article className="group rounded-2xl overflow-hidden bg-neutral border border-charcoal/10 shadow-sm flex flex-col">
+                  {/* Image placeholder */}
+                  <div className="relative h-52 bg-navy/10 flex items-center justify-center">
+                    <div className="absolute top-3 left-3">
+                      <Badge variant="upcoming">Upcoming</Badge>
+                    </div>
+                    {/* [PLACEHOLDER — add project image here] */}
+                    <div className="text-center text-charcoal/30">
+                      <div className="w-16 h-16 rounded-full bg-charcoal/10 mx-auto mb-2" />
+                      <p className="text-xs">[Project Image Placeholder]</p>
+                    </div>
+                  </div>
+                  {/* Content */}
+                  <div className="p-5 flex flex-col flex-1">
+                    <h3 className="font-serif text-xl font-bold text-charcoal leading-tight mb-2">
+                      {project.name}
+                    </h3>
+                    <p className="text-sm text-charcoal/60 mb-4">
+                      [PLACEHOLDER — location, Nagpur]
+                    </p>
+                    <div className="mt-auto pt-4 border-t border-charcoal/10">
+                      <p className="text-xs text-charcoal/50 italic">
+                        Details launching soon — register your interest below.
+                      </p>
+                    </div>
+                    <Link href="/contact" className="mt-4">
+                      <Button variant="secondary" className="w-full border-navy text-navy hover:bg-navy hover:text-white" size="md">
+                        Register Interest
+                      </Button>
+                    </Link>
+                  </div>
+                </article>
+              </AnimatedSection>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── LOCATIONS BAND ── */}
       <section className="py-20 bg-neutral" aria-labelledby="locations-heading">
+
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
             <div className="text-center mb-12">

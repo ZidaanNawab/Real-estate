@@ -207,8 +207,52 @@ export default function AboutPage() {
           </div>
         </AnimatedSection>
 
+        {/* ── MEET THE TEAM ── */}
+        <AnimatedSection>
+          <div className="mt-16 mb-16">
+            <div className="text-center mb-10">
+              <p className="text-orange text-sm font-semibold uppercase tracking-widest mb-2">
+                Our Leadership
+              </p>
+              <h2 className="font-serif text-3xl font-bold text-charcoal">
+                Meet the Team
+              </h2>
+              <p className="text-charcoal/60 mt-3 max-w-xl mx-auto">
+                The people behind Mauli Infra Plots — decades of combined experience
+                in Nagpur&apos;s real estate market.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+              {[
+                { name: "Pravin Jain", role: "[PLACEHOLDER — confirm title: Founder / Co-Founder / Director]" },
+                { name: "Ashwin Vairagade", role: "[PLACEHOLDER — confirm title: Founder / Co-Founder / Director]" },
+                { name: "Pravin Rahate", role: "[PLACEHOLDER — confirm title: Founder / Co-Founder / Director]" },
+              ].map((person, i) => (
+                <AnimatedSection key={person.name} delay={i * 0.1}>
+                  <div className="bg-white rounded-2xl p-6 border border-charcoal/10 text-center flex flex-col items-center">
+                    {/* Photo placeholder — replace with <Image> once photos are provided */}
+                    <div className="w-28 h-28 rounded-full bg-charcoal/10 mb-4 flex items-center justify-center overflow-hidden">
+                      {/* [PLACEHOLDER: add team member photo here]
+                          Usage: <Image src="/team/pravin-jain.jpg" alt="Pravin Jain" fill className="object-cover" /> */}
+                      <div className="text-charcoal/30 text-xs text-center px-2">Photo</div>
+                    </div>
+                    <h3 className="font-serif text-lg font-bold text-charcoal mb-1">
+                      {person.name}
+                    </h3>
+                    <p className="text-sm text-orange font-semibold">
+                      {person.role}
+                    </p>
+                  </div>
+                </AnimatedSection>
+              ))}
+            </div>
+          </div>
+        </AnimatedSection>
+
         {/* CTA */}
         <AnimatedSection>
+
           <div className="mt-16 text-center bg-navy rounded-2xl p-10">
             <h2 className="font-serif text-3xl font-bold text-white mb-4">
               Ready to work with us?

@@ -27,6 +27,7 @@ const interestOptions = [
   { value: "besa", label: "Plots in Besa" },
   { value: "mihan-corridor", label: "Plots near MIHAN" },
   { value: "shankarpur", label: "Plots in Shankarpur" },
+  { value: "samruddhi-circle", label: "Plots near Samruddhi Circle" },
   { value: "general", label: "General enquiry" },
 ];
 
