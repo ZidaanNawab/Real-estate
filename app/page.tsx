@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Phone, ArrowRight, Shield, MapPin, Star, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/Button";
-import { ProjectsSlider } from "@/components/sections/ProjectsSlider";
+import { ProjectCarousel } from "@/components/sections/ProjectCarousel";
 import { Badge } from "@/components/ui/Badge";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { buildMetadata } from "@/lib/metadata";
@@ -163,7 +163,7 @@ export default function HomePage() {
 
           {/* px-6 pads the slider so its ±-left/right-5 arrow buttons don't clip */}
           <div className="px-6">
-            <ProjectsSlider projects={projects} />
+            <ProjectCarousel projects={projects} />
           </div>
         </div>
       </section>
