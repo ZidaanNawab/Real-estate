@@ -22,7 +22,9 @@ export interface Project {
   reraNumber: string;
   description: string;
   priceTable: { size: string; pricePerSqFt: string; totalRange: string }[];
+  brochureUrl?: string; // e.g. "/brochures/mauli-templetown-40.pdf" — leave undefined if no PDF uploaded yet
 }
+
 
 export const projects: Project[] = [
   {
@@ -38,16 +40,14 @@ export const projects: Project[] = [
     plotSizes: ["[PLACEHOLDER]"],
     totalPlots: 0, // [PLACEHOLDER]
     availablePlots: 0, // [PLACEHOLDER]
-    heroImage:
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80", // [PLACEHOLDER — replace with real project image]
-    images: [
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80",
-    ],
+    heroImage: "/mauli-templetown.webp",
+    images: ["/mauli-templetown.webp"],
     amenities: ["[PLACEHOLDER — add amenities]"],
     highlights: ["[PLACEHOLDER — add highlights]"],
     mapEmbedUrl: "[PLACEHOLDER — add Google Maps embed URL]",
     reraNumber: "[PLACEHOLDER: RERA-REG-XXXX]",
     description: "[PLACEHOLDER — add project description]",
+    brochureUrl: "/brochures/mauli-templetown-40.pdf",
     priceTable: [
       {
         size: "[PLACEHOLDER]",
@@ -56,6 +56,7 @@ export const projects: Project[] = [
       },
     ],
   },
+
   {
     id: "2",
     slug: "mauli-crystal-35",
@@ -69,16 +70,14 @@ export const projects: Project[] = [
     plotSizes: ["[PLACEHOLDER]"],
     totalPlots: 0, // [PLACEHOLDER]
     availablePlots: 0, // [PLACEHOLDER]
-    heroImage:
-      "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?w=1200&q=80", // [PLACEHOLDER — replace with real project image]
-    images: [
-      "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?w=800&q=80",
-    ],
+    heroImage: "/mauli-crystal.webp",
+    images: ["/mauli-crystal.webp"],
     amenities: ["[PLACEHOLDER — add amenities]"],
     highlights: ["[PLACEHOLDER — add highlights]"],
     mapEmbedUrl: "[PLACEHOLDER — add Google Maps embed URL]",
     reraNumber: "[PLACEHOLDER: RERA-REG-XXXX]",
     description: "[PLACEHOLDER — add project description]",
+    brochureUrl: "/brochures/mauli-crystal-35.pdf",
     priceTable: [
       {
         size: "[PLACEHOLDER]",
@@ -87,6 +86,7 @@ export const projects: Project[] = [
       },
     ],
   },
+
   {
     id: "3",
     slug: "mauli-niwasa-36-37",
@@ -100,16 +100,14 @@ export const projects: Project[] = [
     plotSizes: ["[PLACEHOLDER]"],
     totalPlots: 0, // [PLACEHOLDER]
     availablePlots: 0, // [PLACEHOLDER]
-    heroImage:
-      "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1200&q=80", // [PLACEHOLDER — replace with real project image]
-    images: [
-      "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&q=80",
-    ],
+    heroImage: "/mauli-niwasa.webp",
+    images: ["/mauli-niwasa.webp"],
     amenities: ["[PLACEHOLDER — add amenities]"],
     highlights: ["[PLACEHOLDER — add highlights]"],
     mapEmbedUrl: "[PLACEHOLDER — add Google Maps embed URL]",
     reraNumber: "[PLACEHOLDER: RERA-REG-XXXX]",
     description: "[PLACEHOLDER — add project description]",
+    brochureUrl: "/brochures/mauli-niwasa-36-37.pdf",
     priceTable: [
       {
         size: "[PLACEHOLDER]",
@@ -118,6 +116,7 @@ export const projects: Project[] = [
       },
     ],
   },
+
   {
     id: "4",
     slug: "mauli-infinity-39",
@@ -131,16 +130,14 @@ export const projects: Project[] = [
     plotSizes: ["[PLACEHOLDER]"],
     totalPlots: 0, // [PLACEHOLDER]
     availablePlots: 0, // [PLACEHOLDER]
-    heroImage:
-      "https://images.unsplash.com/photo-1448630360428-65456885c650?w=1200&q=80", // [PLACEHOLDER — replace with real project image]
-    images: [
-      "https://images.unsplash.com/photo-1448630360428-65456885c650?w=800&q=80",
-    ],
+    heroImage: "/mauli-infinity.webp",
+    images: ["/mauli-infinity.webp"],
     amenities: ["[PLACEHOLDER — add amenities]"],
     highlights: ["[PLACEHOLDER — add highlights]"],
     mapEmbedUrl: "[PLACEHOLDER — add Google Maps embed URL]",
     reraNumber: "[PLACEHOLDER: RERA-REG-XXXX]",
     description: "[PLACEHOLDER — add project description]",
+    brochureUrl: "/brochures/mauli-infinity-39.pdf",
     priceTable: [
       {
         size: "[PLACEHOLDER]",
@@ -149,6 +146,7 @@ export const projects: Project[] = [
       },
     ],
   },
+
   {
     id: "5",
     slug: "mauli-upwan-38",
@@ -162,16 +160,14 @@ export const projects: Project[] = [
     plotSizes: ["[PLACEHOLDER]"],
     totalPlots: 0, // [PLACEHOLDER]
     availablePlots: 0, // [PLACEHOLDER]
-    heroImage:
-      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1200&q=80", // [PLACEHOLDER — replace with real project image]
-    images: [
-      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80",
-    ],
+    heroImage: "/mauli-upwan.webp",
+    images: ["/mauli-upwan.webp"],
     amenities: ["[PLACEHOLDER — add amenities]"],
     highlights: ["[PLACEHOLDER — add highlights]"],
     mapEmbedUrl: "[PLACEHOLDER — add Google Maps embed URL]",
     reraNumber: "[PLACEHOLDER: RERA-REG-XXXX]",
     description: "[PLACEHOLDER — add project description]",
+    brochureUrl: "/brochures/mauli-upwan-38.pdf",
     priceTable: [
       {
         size: "[PLACEHOLDER]",
@@ -180,6 +176,7 @@ export const projects: Project[] = [
       },
     ],
   },
+
   {
     id: "6",
     slug: "mauli-town-21",
@@ -193,16 +190,14 @@ export const projects: Project[] = [
     plotSizes: ["[PLACEHOLDER]"],
     totalPlots: 0, // [PLACEHOLDER]
     availablePlots: 0, // [PLACEHOLDER]
-    heroImage:
-      "https://images.unsplash.com/photo-1523217582562-09d0def993a6?w=1200&q=80", // [PLACEHOLDER — replace with real project image]
-    images: [
-      "https://images.unsplash.com/photo-1523217582562-09d0def993a6?w=800&q=80",
-    ],
+    heroImage: "[PLACEHOLDER — add project image: /mauli-town-21.webp]",
+    images: ["[PLACEHOLDER — add project image]"],
     amenities: ["[PLACEHOLDER — add amenities]"],
     highlights: ["[PLACEHOLDER — add highlights]"],
     mapEmbedUrl: "[PLACEHOLDER — add Google Maps embed URL]",
     reraNumber: "[PLACEHOLDER: RERA-REG-XXXX]",
     description: "[PLACEHOLDER — add project description]",
+    // brochureUrl: "/brochures/mauli-town-21.pdf", // Uncomment once PDF is added to public/brochures/
     priceTable: [
       {
         size: "[PLACEHOLDER]",
@@ -212,6 +207,7 @@ export const projects: Project[] = [
     ],
   },
 ];
+
 
 export function getProjectBySlug(slug: string): Project | undefined {
   return projects.find((p) => p.slug === slug);

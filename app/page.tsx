@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Phone, ArrowRight, Shield, MapPin, Star, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/Button";
-import { ProjectCard } from "@/components/sections/ProjectCard";
+import { ProjectsSlider } from "@/components/sections/ProjectsSlider";
 import { Badge } from "@/components/ui/Badge";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { buildMetadata } from "@/lib/metadata";
@@ -28,7 +28,8 @@ const trustStats = [
 ];
 
 export default function HomePage() {
-  const featuredProjects = projects.slice(0, 3);
+  // All projects fed into the slider — slider handles the visible-window logic
+
 
   return (
     <>
@@ -160,15 +161,13 @@ export default function HomePage() {
             </div>
           </AnimatedSection>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {featuredProjects.map((project, i) => (
-              <AnimatedSection key={project.id} delay={i * 0.1}>
-                <ProjectCard project={project} />
-              </AnimatedSection>
-            ))}
+          {/* px-6 pads the slider so its ±-left/right-5 arrow buttons don't clip */}
+          <div className="px-6">
+            <ProjectsSlider projects={projects} />
           </div>
         </div>
       </section>
+
 
       {/* ── UPCOMING PROJECTS ── */}
       <section className="py-20 bg-white" aria-labelledby="upcoming-heading">

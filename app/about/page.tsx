@@ -1,5 +1,4 @@
-import Image from "next/image";
-import Link from "next/link";
+﻿import Link from "next/link";
 import { Shield, Clock, Award, Users } from "lucide-react";
 import { buildMetadata } from "@/lib/metadata";
 import { testimonials } from "@/data/testimonials";
@@ -8,22 +7,14 @@ import { AnimatedSection } from "@/components/ui/AnimatedSection";
 export const metadata = buildMetadata({
   title: "About Us — RERA-Registered Real Estate Broker in Nagpur",
   description:
-    "Learn about Mauli Infra Plots — Nagpur's trusted real estate broker with 15+ years of experience. RERA registered, 500+ happy clients, zero hidden charges.",
+    "Learn about Mauli Infra Plots — Nagpur's trusted real estate broker with 7+ years of experience. RERA registered, 8,000+ happy clients, zero hidden charges.",
   path: "/about",
 });
-
-const milestones = [
-  { year: "[YEAR]", event: "Founded — began as a boutique land advisory for Wardha Road plots" },
-  { year: "[YEAR]", event: "Crossed 100 client transactions — built reputation for transparent pricing" },
-  { year: "[YEAR]", event: "RERA registration obtained — one of the first brokers in Nagpur to register" },
-  { year: "[YEAR]", event: "Expanded to MIHAN corridor — became the leading local advisor for airport-adjacent plots" },
-  { year: "2025", event: "500+ clients served across Wardha Road, Besa, MIHAN & Shankarpur" },
-];
 
 export default function AboutPage() {
   return (
     <div className="pt-24 min-h-screen bg-neutral">
-      {/* Header */}
+      {/* ── Header ── */}
       <section className="bg-neutral pt-8 pb-10 px-4 sm:px-6 lg:px-8 border-b border-charcoal/10">
         <div className="mx-auto max-w-5xl text-center">
           <AnimatedSection>
@@ -36,80 +27,84 @@ export default function AboutPage() {
             </h1>
             <p className="text-charcoal/70 text-lg max-w-2xl mx-auto leading-relaxed">
               We started with a simple belief: that buying land in Nagpur should be
-              straightforward, transparent, and stress-free. Fifteen years on, 500+
-              clients have put their trust in us — and kept it.
+              straightforward, transparent, and stress-free. 7 years on, 8,000+
+              families have put their trust in us — and kept it.
             </p>
           </AnimatedSection>
         </div>
       </section>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">
-          {/* Broker photo + bio */}
-          <AnimatedSection>
-            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-charcoal/10">
-              <div className="absolute inset-0 flex items-center justify-center text-charcoal/30">
-                {/* [PLACEHOLDER: Add broker photo here] */}
-                <div className="text-center">
-                  <div className="w-24 h-24 rounded-full bg-charcoal/20 mx-auto mb-3" />
-                  <p className="text-sm">[PLACEHOLDER: Broker Photo]</p>
-                </div>
-              </div>
-            </div>
-          </AnimatedSection>
 
-          <AnimatedSection delay={0.1}>
-            <div>
+        {/* ── Meet the Team ── */}
+        <AnimatedSection>
+          <div className="mb-20">
+            <div className="text-center mb-10">
               <p className="text-orange text-sm font-semibold uppercase tracking-widest mb-2">
-                Meet Our Founder
+                Our Leadership
               </p>
-              <h2 className="font-serif text-3xl font-bold text-charcoal mb-4">
-                [PLACEHOLDER: Broker Name]
+              <h2 className="font-serif text-3xl sm:text-4xl font-bold text-charcoal">
+                Meet the Team
               </h2>
-              <div className="flex flex-wrap gap-3 mb-6">
-                <span className="bg-orange/10 text-orange border border-orange/20 rounded-full px-3 py-1 text-xs font-semibold">
-                  RERA Reg. [PLACEHOLDER]
-                </span>
-                <span className="bg-navy/10 text-navy border border-navy/20 rounded-full px-3 py-1 text-xs font-semibold">
-                  15+ Years Experience
-                </span>
-              </div>
-              <div className="space-y-4 text-charcoal/70 leading-relaxed">
-                <p>
-                  [PLACEHOLDER: Broker bio paragraph 1 — background, how they got into real estate,
-                  what drives their commitment to Nagpur's property market.]
-                </p>
-                <p>
-                  [PLACEHOLDER: Broker bio paragraph 2 — specific expertise, why they focus on
-                  RERA-registered projects, philosophy on client service.]
-                </p>
-                <p>
-                  [PLACEHOLDER: Broker bio paragraph 3 — community involvement, professional
-                  associations, personal connection to Nagpur.]
-                </p>
-              </div>
-
-              <div className="mt-8 p-5 bg-navy/5 rounded-xl border border-navy/10">
-                <p className="text-xs text-charcoal/50 uppercase tracking-wide mb-1">
-                  MahaRERA Registration
-                </p>
-                <p className="font-mono font-bold text-navy text-lg">
-                  [PLACEHOLDER: RERA-AGENT-XXXX]
-                </p>
-                <a
-                  href="https://maharerait.maharashtra.gov.in"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-xs text-orange hover:text-orange/80 mt-1 inline-block"
-                >
-                  Verify on MahaRERA →
-                </a>
-              </div>
+              <p className="text-charcoal/60 mt-3 max-w-xl mx-auto">
+                The people behind Mauli Infra Plots — decades of combined experience
+                in Nagpur&apos;s real estate market.
+              </p>
             </div>
-          </AnimatedSection>
-        </div>
 
-        {/* Values */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+              {[
+                {
+                  name: "Pravin Jain",
+                  role: "[PLACEHOLDER — confirm title: Founder / Co-Founder / Director]",
+                },
+                {
+                  name: "Ashwin Vairagade",
+                  role: "[PLACEHOLDER — confirm title: Founder / Co-Founder / Director]",
+                },
+                {
+                  name: "Pravin Rahate",
+                  role: "[PLACEHOLDER — confirm title: Founder / Co-Founder / Director]",
+                },
+              ].map((person, i) => (
+                <AnimatedSection key={person.name} delay={i * 0.1}>
+                  <div className="bg-white rounded-2xl p-8 border border-charcoal/10 text-center flex flex-col items-center shadow-sm">
+                    {/* Photo placeholder — replace div with Image once photos are provided */}
+                    {/* Usage: <Image src="/team/pravin-jain.jpg" alt="Pravin Jain" width={112} height={112} className="rounded-full object-cover" /> */}
+                    <div className="w-28 h-28 rounded-full bg-charcoal/10 mb-5 flex items-center justify-center">
+                      <span className="text-charcoal/30 text-xs">Photo</span>
+                    </div>
+                    <h3 className="font-serif text-xl font-bold text-charcoal mb-1">
+                      {person.name}
+                    </h3>
+                    <p className="text-sm text-orange font-semibold">
+                      {person.role}
+                    </p>
+                    {/* MahaRERA registration box — fill in once confirmed */}
+                    <div className="mt-5 w-full p-4 bg-navy/5 rounded-xl border border-navy/10">
+                      <p className="text-xs text-charcoal/50 uppercase tracking-wide mb-1">
+                        MahaRERA Registration
+                      </p>
+                      <p className="font-mono font-bold text-navy">
+                        [PLACEHOLDER: RERA-AGENT-XXXX]
+                      </p>
+                      <a
+                        href="https://maharerait.maharashtra.gov.in"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-xs text-orange hover:text-orange/80 mt-1 inline-block"
+                      >
+                        Verify on MahaRERA →
+                      </a>
+                    </div>
+                  </div>
+                </AnimatedSection>
+              ))}
+            </div>
+          </div>
+        </AnimatedSection>
+
+        {/* ── Trust stat cards — matched to home page trust stats ── */}
         <AnimatedSection>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
             {[
@@ -120,7 +115,7 @@ export default function AboutPage() {
               },
               {
                 icon: <Clock size={28} className="text-orange" />,
-                title: "15+ Years",
+                title: "7+ Years",
                 desc: "Deep Nagpur real estate experience across multiple market cycles.",
               },
               {
@@ -130,8 +125,8 @@ export default function AboutPage() {
               },
               {
                 icon: <Users size={28} className="text-orange" />,
-                title: "500+ Clients",
-                desc: "Over five hundred families have found their Nagpur property through us.",
+                title: "8,000+ Clients",
+                desc: "Over eight thousand families have found their Nagpur property through us.",
               },
             ].map((item, i) => (
               <AnimatedSection key={item.title} delay={i * 0.08}>
@@ -147,42 +142,9 @@ export default function AboutPage() {
           </div>
         </AnimatedSection>
 
-        {/* Timeline */}
+        {/* ── Testimonials ── */}
         <AnimatedSection>
           <div className="mb-20">
-            <h2 className="font-serif text-3xl font-bold text-charcoal mb-10 text-center">
-              Our Journey
-            </h2>
-            <div className="relative">
-              <div className="absolute left-4 sm:left-1/2 top-0 bottom-0 w-px bg-charcoal/10" />
-              <div className="flex flex-col gap-8">
-                {milestones.map((m, i) => (
-                  <div
-                    key={i}
-                    className={`relative flex gap-6 ${i % 2 === 0 ? "sm:flex-row" : "sm:flex-row-reverse"}`}
-                  >
-                    <div className="sm:w-1/2 pl-10 sm:pl-0">
-                      <div
-                        className={`bg-white rounded-xl p-5 border border-charcoal/10 ${
-                          i % 2 === 0 ? "sm:mr-8" : "sm:ml-8"
-                        }`}
-                      >
-                        <p className="text-orange font-bold text-sm mb-1">{m.year}</p>
-                        <p className="text-charcoal/70 text-sm">{m.event}</p>
-                      </div>
-                    </div>
-                    {/* Dot */}
-                    <div className="absolute left-3 sm:left-1/2 top-5 w-3 h-3 -ml-1.5 rounded-full bg-orange border-2 border-white shadow" />
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </AnimatedSection>
-
-        {/* Testimonials */}
-        <AnimatedSection>
-          <div>
             <h2 className="font-serif text-3xl font-bold text-charcoal mb-8 text-center">
               What Clients Say
             </h2>
@@ -207,53 +169,9 @@ export default function AboutPage() {
           </div>
         </AnimatedSection>
 
-        {/* ── MEET THE TEAM ── */}
+        {/* ── CTA ── */}
         <AnimatedSection>
-          <div className="mt-16 mb-16">
-            <div className="text-center mb-10">
-              <p className="text-orange text-sm font-semibold uppercase tracking-widest mb-2">
-                Our Leadership
-              </p>
-              <h2 className="font-serif text-3xl font-bold text-charcoal">
-                Meet the Team
-              </h2>
-              <p className="text-charcoal/60 mt-3 max-w-xl mx-auto">
-                The people behind Mauli Infra Plots — decades of combined experience
-                in Nagpur&apos;s real estate market.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
-              {[
-                { name: "Pravin Jain", role: "[PLACEHOLDER — confirm title: Founder / Co-Founder / Director]" },
-                { name: "Ashwin Vairagade", role: "[PLACEHOLDER — confirm title: Founder / Co-Founder / Director]" },
-                { name: "Pravin Rahate", role: "[PLACEHOLDER — confirm title: Founder / Co-Founder / Director]" },
-              ].map((person, i) => (
-                <AnimatedSection key={person.name} delay={i * 0.1}>
-                  <div className="bg-white rounded-2xl p-6 border border-charcoal/10 text-center flex flex-col items-center">
-                    {/* Photo placeholder — replace with <Image> once photos are provided */}
-                    <div className="w-28 h-28 rounded-full bg-charcoal/10 mb-4 flex items-center justify-center overflow-hidden">
-                      {/* [PLACEHOLDER: add team member photo here]
-                          Usage: <Image src="/team/pravin-jain.jpg" alt="Pravin Jain" fill className="object-cover" /> */}
-                      <div className="text-charcoal/30 text-xs text-center px-2">Photo</div>
-                    </div>
-                    <h3 className="font-serif text-lg font-bold text-charcoal mb-1">
-                      {person.name}
-                    </h3>
-                    <p className="text-sm text-orange font-semibold">
-                      {person.role}
-                    </p>
-                  </div>
-                </AnimatedSection>
-              ))}
-            </div>
-          </div>
-        </AnimatedSection>
-
-        {/* CTA */}
-        <AnimatedSection>
-
-          <div className="mt-16 text-center bg-navy rounded-2xl p-10">
+          <div className="mt-4 text-center bg-navy rounded-2xl p-10">
             <h2 className="font-serif text-3xl font-bold text-white mb-4">
               Ready to work with us?
             </h2>
@@ -267,6 +185,7 @@ export default function AboutPage() {
             </Link>
           </div>
         </AnimatedSection>
+
       </div>
     </div>
   );
