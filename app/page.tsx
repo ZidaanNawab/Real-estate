@@ -38,36 +38,37 @@ export default function HomePage() {
         className="relative min-h-screen flex items-center justify-center overflow-hidden bg-navy"
         aria-label="Hero section"
       >
-        {/* Background video — loads behind hero text, does not block LCP */}
+        {/* ── Background images ── */}
         <div className="absolute inset-0">
           {/*
-            ── VIDEO PLACEHOLDER ──────────────────────────────────────────────
-            Drop the real hero video file at: /public/videos/hero.mp4
-            Then update the src below from "/videos/hero-placeholder.mp4"
-            to "/videos/hero.mp4" and remove this comment block.
-
-            Also replace the poster with the actual first-frame image:
-              poster="/videos/hero-poster.jpg"
-            (export a JPEG from the first frame of the video)
-            ──────────────────────────────────────────────────────────────────
+            Desktop background — hero-image-bg.webp
+            Hidden on mobile (below sm), shown on sm and up.
           */}
-          {/* Dark navy gradient shown while video loads (acts as poster) */}
-          <div className="absolute inset-0 bg-gradient-to-br from-navy via-navy/90 to-navy/80 flex items-center justify-center">
-            <p className="text-white/20 text-xs font-mono tracking-widest select-none">
-              [VIDEO PLACEHOLDER — add hero video file here]
-            </p>
-          </div>
-          {/* HTML5 video — muted+autoPlay+loop+playsInline required for mobile autoplay */}
-          <video
-            src="/videos/hero-placeholder.mp4"
-            poster="/videos/hero-poster.jpg"
-            autoPlay
-            muted
-            loop
-            playsInline
+          <Image
+            src="/hero-image-bg.webp"
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="hidden sm:block object-cover object-center"
             aria-hidden="true"
-            className="absolute inset-0 w-full h-full object-cover opacity-30"
           />
+
+          {/*
+            Mobile background — hero-image-bg-2.webp
+            Shown only below sm breakpoint.
+          */}
+          <Image
+            src="/hero-image-bg-2.webp"
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="block sm:hidden object-cover object-center"
+            aria-hidden="true"
+          />
+
+          {/* Navy overlay — keeps text legible and preserves the existing dark tone */}
           <div className="absolute inset-0 bg-gradient-to-b from-navy/70 via-navy/50 to-navy/80" />
         </div>
 
