@@ -193,37 +193,69 @@ export default function HomePage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { name: "Mauli The Arc" },
-              { name: "Mauli Niwasa Phase 2" },
-              { name: "Dongar Gaon" },
+              {
+                name: "Mauli The Arc",
+                image: "/images/upcoming/mauli-the-arc.webp",
+                slug: "mauli-the-arc",
+              },
+              {
+                name: "Mauli Niwasa Phase 2",
+                image: "/images/upcoming/mauli-niwasa-phase-2.webp",
+                slug: "mauli-niwasa-phase-2",
+              },
+              {
+                name: "Dongar Gaon",
+                image: "/images/upcoming/dongar-gaon.webp",
+                slug: "dongar-gaon",
+              },
             ].map((project, i) => (
               <AnimatedSection key={project.name} delay={i * 0.1}>
                 <article className="group rounded-2xl overflow-hidden bg-neutral border border-charcoal/10 shadow-sm flex flex-col">
-                  {/* Image placeholder */}
-                  <div className="relative h-52 bg-navy/10 flex items-center justify-center">
-                    <div className="absolute top-3 left-3">
+                  {/* Thumbnail — image + gradient + name overlay */}
+                  <div className="relative h-52 bg-navy/10 overflow-hidden">
+
+                    {/* Upcoming badge — top-left, above everything */}
+                    <div className="absolute top-3 left-3 z-20">
                       <Badge variant="upcoming">Upcoming</Badge>
                     </div>
-                    {/* [PLACEHOLDER — add project image here] */}
-                    <div className="text-center text-charcoal/30">
-                      <div className="w-16 h-16 rounded-full bg-charcoal/10 mx-auto mb-2" />
-                      <p className="text-xs">[Project Image Placeholder]</p>
-                    </div>
-                  </div>
-                  {/* Content */}
-                  <div className="p-5 flex flex-col flex-1">
-                    <h3 className="font-serif text-xl font-bold text-charcoal leading-tight mb-2">
+
+                    {/* Photo — z-index 0 (base layer) */}
+                    <Image
+                      src={project.image}
+                      alt={`${project.name} — upcoming plotted development in Nagpur`}
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+
+                    {/* Dark scrim — z-index 10, above image */}
+                    <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-black/75 via-black/40 to-transparent z-10 pointer-events-none" />
+
+                    {/*
+                      Project name — z-index 10 (above scrim), inline color to
+                      override the globals.css h3 rule that forces charcoal on
+                      all headings. clamp() for responsive sizing, line-clamp-2
+                      for overflow safety.
+                    */}
+                    <h3
+                      className="absolute bottom-0 left-0 right-0 px-4 pb-3 z-10 font-serif font-bold leading-snug line-clamp-2"
+                      style={{
+                        fontSize: "clamp(1.05rem, 3.5vw, 1.3rem)",
+                        color: "#ffffff",
+                      }}
+                    >
                       {project.name}
                     </h3>
-                    <p className="text-sm text-charcoal/60 mb-4">
-                      [PLACEHOLDER — location, Nagpur]
-                    </p>
-                    <div className="mt-auto pt-4 border-t border-charcoal/10">
-                      <p className="text-xs text-charcoal/50 italic">
+                  </div>
+
+                  {/* Content below thumbnail — only the button, no placeholder text */}
+                  <div className="p-5 flex flex-col flex-1">
+                    <div className="mt-auto pt-2">
+                      <p className="text-xs text-charcoal/50 italic mb-4">
                         Details launching soon — register your interest below.
                       </p>
                     </div>
-                    <Link href="/contact" className="mt-4">
+                    <Link href="/contact">
                       <Button variant="secondary" className="w-full border-navy text-navy hover:bg-navy hover:text-white" size="md">
                         Register Interest
                       </Button>

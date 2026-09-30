@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { MapPin, Check, Phone, Download } from "lucide-react";
+import { MapPin, Check, Phone, ExternalLink } from "lucide-react";
 import { projects, getProjectBySlug } from "@/data/projects";
 
 import { buildMetadata } from "@/lib/metadata";
@@ -285,17 +285,16 @@ export default async function ProjectDetailPage({ params }: PageProps) {
                     />
                   </div>
 
-                  {/* Download Brochure — only shown when PDF is uploaded */}
+                  {/* View Brochure — only shown when PDF is uploaded */}
                   {project.brochureUrl && (
                     <a
                       href={project.brochureUrl}
-                      download
                       target="_blank"
                       rel="noopener noreferrer"
                       className="mt-4 flex items-center justify-center gap-2 w-full px-4 py-3 rounded-xl border-2 border-charcoal/20 text-charcoal/70 text-sm font-semibold hover:border-navy hover:text-navy hover:bg-navy/5 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy"
                     >
-                      <Download size={16} />
-                      Download Brochure
+                      <ExternalLink size={16} />
+                      View Brochure
                     </a>
                   )}
 
