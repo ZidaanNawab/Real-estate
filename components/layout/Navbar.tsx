@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Phone } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/Button";
 
@@ -95,7 +95,15 @@ export function Navbar() {
           </ul>
 
           {/* Desktop CTA */}
-          <div className="hidden lg:flex items-center gap-3">
+          <div className="hidden lg:flex items-center gap-2">
+            <a
+              href="tel:+919359306709"
+              aria-label="Call us"
+              className="flex items-center gap-1.5 px-4 py-2 rounded-lg border border-white/30 text-white text-sm font-medium hover:bg-white/10 hover:border-white/60 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange"
+            >
+              <Phone size={15} />
+              Call
+            </a>
             <Link href="/contact">
               <Button size="md">Enquire Now</Button>
             </Link>
@@ -178,9 +186,11 @@ export function Navbar() {
                 </Link>
                 <a
                   href="tel:+919359306709"
-                  className="flex items-center justify-center gap-2 text-white/80 hover:text-white transition-colors py-2"
+                  aria-label="Call us"
+                  className="flex items-center justify-center gap-2 w-full px-4 py-3 rounded-lg border-2 border-white/30 text-white text-sm font-semibold hover:bg-white/10 hover:border-white/60 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange"
                 >
-                  <span className="text-sm">+91 93593 06709</span>
+                  <Phone size={16} />
+                  Call Us
                 </a>
               </div>
 

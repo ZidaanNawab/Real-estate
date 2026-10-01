@@ -10,6 +10,7 @@ import { projects } from "@/data/projects";
 import { testimonials } from "@/data/testimonials";
 import { locations } from "@/data/locations";
 import { TestimonialsCarousel } from "./TestimonialsCarousel";
+import { HeroBackgroundVideo } from "@/components/home/HeroBackgroundVideo";
 
 
 export const metadata = buildMetadata({
@@ -21,9 +22,7 @@ export const metadata = buildMetadata({
 
 const trustStats = [
   { value: "8,000+", label: "Happy Clients" },
-  // PLACEHOLDER — confirm exact label with client, e.g. "Worth of Projects Delivered" or "Investment Value Facilitated"
   { value: "₹500 Cr+", label: "Worth of Projects Delivered" },
-  { value: "8,000+", label: "Families Trusted" },
   { value: "7+", label: "Years of Experience" },
 ];
 
@@ -38,38 +37,9 @@ export default function HomePage() {
         className="relative min-h-screen flex items-center justify-center overflow-hidden bg-navy"
         aria-label="Hero section"
       >
-        {/* ── Background images ── */}
+        {/* ── Hero background video (desktop + mobile, muted, decorative) ── */}
         <div className="absolute inset-0">
-          {/*
-            Desktop background — hero-image-bg.webp
-            Hidden on mobile (below sm), shown on sm and up.
-          */}
-          <Image
-            src="/hero-image-bg.webp"
-            alt=""
-            fill
-            priority
-            sizes="100vw"
-            className="hidden sm:block object-cover object-center"
-            aria-hidden="true"
-          />
-
-          {/*
-            Mobile background — hero-image-bg-2.webp
-            Shown only below sm breakpoint.
-          */}
-          <Image
-            src="/hero-image-bg-2.webp"
-            alt=""
-            fill
-            priority
-            sizes="100vw"
-            className="block sm:hidden object-cover object-center"
-            aria-hidden="true"
-          />
-
-          {/* Navy overlay — keeps text legible and preserves the existing dark tone */}
-          <div className="absolute inset-0 bg-gradient-to-b from-navy/70 via-navy/50 to-navy/80" />
+          <HeroBackgroundVideo />
         </div>
 
 
@@ -122,7 +92,7 @@ export default function HomePage() {
         aria-label="Trust statistics"
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-3xl mx-auto">
             {trustStats.map((stat, i) => (
               <AnimatedSection key={stat.label} delay={i * 0.1}>
                 <div className="text-center">
@@ -212,15 +182,14 @@ export default function HomePage() {
             ].map((project, i) => (
               <AnimatedSection key={project.name} delay={i * 0.1}>
                 <article className="group rounded-2xl overflow-hidden bg-neutral border border-charcoal/10 shadow-sm flex flex-col">
-                  {/* Thumbnail — image + gradient + name overlay */}
-                  <div className="relative h-52 bg-navy/10 overflow-hidden">
 
-                    {/* Upcoming badge — top-left, above everything */}
+                  {/* Thumbnail — 16:9 aspect ratio, never clips */}
+                  <div className="relative w-full bg-navy/10 overflow-hidden flex-shrink-0" style={{ aspectRatio: "16 / 9" }}>
+                    {/* Upcoming badge */}
                     <div className="absolute top-3 left-3 z-20">
                       <Badge variant="upcoming">Upcoming</Badge>
                     </div>
-
-                    {/* Photo — z-index 0 (base layer) */}
+                    {/* Photo */}
                     <Image
                       src={project.image}
                       alt={`${project.name} — upcoming plotted development in Nagpur`}
@@ -228,30 +197,23 @@ export default function HomePage() {
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
                     />
+                    {/* Decorative bottom scrim */}
+                    <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-black/50 to-transparent pointer-events-none z-10" />
+                  </div>
 
-                    {/* Dark scrim — z-index 10, above image */}
-                    <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-black/75 via-black/40 to-transparent z-10 pointer-events-none" />
-
-                    {/*
-                      Project name — z-index 10 (above scrim), inline color to
-                      override the globals.css h3 rule that forces charcoal on
-                      all headings. clamp() for responsive sizing, line-clamp-2
-                      for overflow safety.
-                    */}
+                  {/* Project name — OUTSIDE overflow-hidden, cannot be clipped */}
+                  <div className="px-4 pt-4 pb-1">
                     <h3
-                      className="absolute bottom-0 left-0 right-0 px-4 pb-3 z-10 font-serif font-bold leading-snug line-clamp-2"
-                      style={{
-                        fontSize: "clamp(1.05rem, 3.5vw, 1.3rem)",
-                        color: "#ffffff",
-                      }}
+                      className="font-serif font-bold leading-snug line-clamp-2 text-charcoal"
+                      style={{ fontSize: "clamp(1.05rem, 3.2vw, 1.25rem)" }}
                     >
                       {project.name}
                     </h3>
                   </div>
 
-                  {/* Content below thumbnail — only the button, no placeholder text */}
-                  <div className="p-5 flex flex-col flex-1">
-                    <div className="mt-auto pt-2">
+                  {/* Content below name */}
+                  <div className="px-4 pb-5 flex flex-col flex-1">
+                    <div className="mt-auto pt-3">
                       <p className="text-xs text-charcoal/50 italic mb-4">
                         Details launching soon — register your interest below.
                       </p>
