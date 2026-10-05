@@ -20,6 +20,9 @@ export const metadata = buildMetadata({
   path: "/",
 });
 
+// Override the title so the browser tab shows exactly "Mauli Infra Plots"
+metadata.title = "Mauli Infra Plots";
+
 const trustStats = [
   { value: "8,000+", label: "Happy Clients" },
   { value: "₹500 Cr+", label: "Worth of Projects Delivered" },
