@@ -9,6 +9,8 @@ import { Breadcrumb } from "@/components/sections/Breadcrumb";
 import { Badge } from "@/components/ui/Badge";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { FAQAccordion } from "../FAQAccordion";
+import { SITE_URL } from "@/lib/constants";
+
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -31,7 +33,8 @@ export async function generateMetadata({ params }: PageProps) {
   });
 }
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://yourdomain.com";
+const siteUrl = SITE_URL;
+
 
 export default async function ResourcePostPage({ params }: PageProps) {
   const { slug } = await params;

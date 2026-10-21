@@ -1,7 +1,9 @@
 // JSON-LD schema builder functions
 // All schema is server-rendered as <script type="application/ld+json">
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://yourdomain.com";
+import { SITE_URL } from "@/lib/constants";
+
+const siteUrl = SITE_URL;
 
 // ─── LocalBusiness (site-wide) ────────────────────────────────────────────────
 export function localBusinessSchema() {

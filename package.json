@@ -6,7 +6,8 @@
         "dev": "next dev",
         "build": "next build",
         "start": "next start",
-        "lint": "eslint"
+        "lint": "eslint",
+        "test:sitemap": "npx tsx scripts/test-sitemap-domains.mts"
     },
     "dependencies": {
         "@hookform/resolvers": "^5.9.1",

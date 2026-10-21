@@ -15,6 +15,8 @@ import { EnquiryForm } from "@/components/sections/EnquiryForm";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { formatPriceRange } from "@/lib/utils";
 import { ProjectGallery } from "./ProjectGallery";
+import { SITE_URL } from "@/lib/constants";
+
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -37,7 +39,8 @@ export async function generateMetadata({ params }: PageProps) {
   });
 }
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://yourdomain.com";
+const siteUrl = SITE_URL;
+
 
 export default async function ProjectDetailPage({ params }: PageProps) {
   const { slug } = await params;

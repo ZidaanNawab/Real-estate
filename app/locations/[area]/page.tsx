@@ -11,6 +11,8 @@ import { ProjectCard } from "@/components/sections/ProjectCard";
 import { EnquiryForm } from "@/components/sections/EnquiryForm";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { FAQAccordion } from "./FAQAccordion";
+import { SITE_URL } from "@/lib/constants";
+
 
 interface PageProps {
   params: Promise<{ area: string }>;
@@ -33,7 +35,8 @@ export async function generateMetadata({ params }: PageProps) {
   });
 }
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://yourdomain.com";
+const siteUrl = SITE_URL;
+
 
 export default async function LocationPage({ params }: PageProps) {
   const { area } = await params;

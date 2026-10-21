@@ -5,6 +5,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { PageTransition } from "@/components/layout/PageTransition";
 import { localBusinessSchema } from "@/lib/schema";
+import { SITE_URL } from "@/lib/constants";
 
 // Inter for body text — next/font serves fonts locally, no Google CDN request
 const inter = Inter({
@@ -23,7 +24,8 @@ const fraunces = Fraunces({
   axes: ["SOFT", "WONK"],
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://yourdomain.com";
+const siteUrl = SITE_URL;
+
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

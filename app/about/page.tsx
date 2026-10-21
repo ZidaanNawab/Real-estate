@@ -4,6 +4,7 @@ import { buildMetadata } from "@/lib/metadata";
 import { testimonials } from "@/data/testimonials";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { VideoShowcase } from "@/components/sections/VideoShowcase";
+import { SITE_URL } from "@/lib/constants";
 
 export const metadata = buildMetadata({
   title: "About Us — RERA-Registered Real Estate Broker in Nagpur",
@@ -12,7 +13,8 @@ export const metadata = buildMetadata({
   path: "/about",
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://yourdomain.com";
+const siteUrl = SITE_URL;
+
 
 /**
  * VideoObject JSON-LD for both showcase videos.
