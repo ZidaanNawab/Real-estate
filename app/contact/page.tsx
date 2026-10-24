@@ -1,6 +1,6 @@
 import { buildMetadata } from "@/lib/metadata";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
-import { Phone, Mail, MapPin, MessageCircle } from "lucide-react";
+import { Phone, MapPin, MessageCircle, Mail } from "lucide-react";
 import { ContactForm } from "./ContactForm";
 
 export const metadata = buildMetadata({
@@ -25,7 +25,7 @@ export default function ContactPage() {
             </h1>
             <p className="text-charcoal/70 max-w-xl text-lg">
               Whether you have a specific project in mind or just want to understand
-              what&apos;s available in your budget — we&apos;re here to help.
+              what&apos;s available in your budget &mdash; we&apos;re here to help.
             </p>
           </AnimatedSection>
         </div>
@@ -41,7 +41,7 @@ export default function ContactPage() {
                   Contact Details
                 </h2>
 
-                {/* NAP block — identical to footer and GBP */}
+                {/* NAP block — must be identical to footer and GBP */}
                 <address className="not-italic flex flex-col gap-5">
                   <div className="flex items-start gap-4">
                     <div className="w-10 h-10 rounded-xl bg-orange/10 flex items-center justify-center shrink-0">
@@ -49,15 +49,17 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <p className="font-semibold text-charcoal mb-1">Office Address</p>
-                      <p className="text-charcoal/70 text-sm leading-relaxed">
-                        Mauli Infra Plots
-                        <br />
-                        [PLACEHOLDER: Office Address Line 1]
-                        <br />
-                        [PLACEHOLDER: Area], Nagpur, Maharashtra
-                        <br />
-                        [PLACEHOLDER: PIN Code]
-                      </p>
+                      <a
+                        href="https://share.google/ZZbGqGjkfQXzCRqRh"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-charcoal/70 text-sm leading-relaxed hover:text-orange transition-colors"
+                      >
+                        Mauli Infra Plots<br />
+                        Prince Castle, Plot No. 105,<br />
+                        Opp. Madhav Netralay, Gajanan Nagar,<br />
+                        Wardha Road, Nagpur &ndash; 440015
+                      </a>
                     </div>
                   </div>
 
@@ -73,7 +75,22 @@ export default function ContactPage() {
                       >
                         +91 93593 06709
                       </a>
-                      <p className="text-charcoal/50 text-xs mt-0.5">Mon–Sat, 9am–7pm</p>
+                      <p className="text-charcoal/50 text-xs mt-0.5">Mon&ndash;Sat, 9am&ndash;7pm</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-xl bg-orange/10 flex items-center justify-center shrink-0">
+                      <Mail size={20} className="text-orange" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-charcoal mb-1">Email</p>
+                      <a
+                        href="mailto:Mauliinfra06@gmail.com"
+                        className="text-orange hover:text-orange/80 transition-colors text-sm"
+                      >
+                        Mauliinfra06@gmail.com
+                      </a>
                     </div>
                   </div>
 
@@ -94,41 +111,23 @@ export default function ContactPage() {
                       </a>
                     </div>
                   </div>
-
-                  <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-orange/10 flex items-center justify-center shrink-0">
-                      <Mail size={20} className="text-orange" />
-                    </div>
-                    <div>
-                      <p className="font-semibold text-charcoal mb-1">Email</p>
-                      <a
-                        href="mailto:[PLACEHOLDER]"
-                        className="text-orange hover:text-orange/80 transition-colors"
-                      >
-                        [PLACEHOLDER: contact@yourdomain.com]
-                      </a>
-                    </div>
-                  </div>
                 </address>
 
                 <div className="mt-6 pt-6 border-t border-charcoal/10">
                   <p className="text-xs text-charcoal/50">
-                    RERA Agent Registration: <strong>[PLACEHOLDER]</strong>
-                    <br />
                     <a
                       href="https://maharerait.maharashtra.gov.in"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-orange text-xs"
-                    >
-                      Verify on MahaRERA →
+                    >Verify our registration on MahaRERA &rarr;
                     </a>
                   </p>
                 </div>
               </div>
             </AnimatedSection>
 
-            {/* Map embed */}
+            {/* Map embed — Google Maps shared link */}
             <AnimatedSection delay={0.1}>
               <div className="bg-white rounded-2xl p-4 border border-charcoal/10">
                 <div
@@ -136,14 +135,24 @@ export default function ContactPage() {
                   style={{ paddingBottom: "56.25%", height: 0 }}
                 >
                   <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d119068.84155419573!2d78.97617374999999!3d21.144772!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd4c0a5a31faf13%3A0x19b37cf76e922be5!2sNagpur%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1700000000000"
+                    src="https://maps.google.com/maps?q=Prince+Castle+Plot+105+Opp+Madhav+Netralay+Gajanan+Nagar+Wardha+Road+Nagpur+440015&output=embed"
                     title="Office location map — Mauli Infra Plots, Nagpur"
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
                     className="absolute inset-0 w-full h-full border-0"
-                    aria-label="Map showing office location in Nagpur, Maharashtra"
+                    aria-label="Map showing Mauli Infra Plots office on Wardha Road, Nagpur"
                   />
                 </div>
+                <p className="text-xs text-charcoal/50 mt-2 text-center">
+                  <a
+                    href="https://share.google/ZZbGqGjkfQXzCRqRh"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-orange hover:underline"
+                  >
+                    Open in Google Maps &rarr;
+                  </a>
+                </p>
               </div>
             </AnimatedSection>
           </div>

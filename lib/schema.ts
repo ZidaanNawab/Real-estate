@@ -1,11 +1,16 @@
-// JSON-LD schema builder functions
+﻿// JSON-LD schema builder functions
 // All schema is server-rendered as <script type="application/ld+json">
 
-import { SITE_URL } from "@/lib/constants";
+import { CANONICAL_SITE_URL } from "@/lib/constants";
 
-const siteUrl = SITE_URL;
+// Schema URLs must always be canonical -- validators reject localhost URLs
+const siteUrl = CANONICAL_SITE_URL;
 
 // ─── LocalBusiness (site-wide) ────────────────────────────────────────────────
+// Only verified fields are included. Fields that require owner confirmation
+// (email, street address, geo coordinates, social profiles) are omitted until
+// the owner supplies the real values — invalid placeholder strings are worse
+// for structured-data quality than simply omitting optional fields.
 export function localBusinessSchema() {
   return {
     "@context": "https://schema.org",
@@ -15,19 +20,12 @@ export function localBusinessSchema() {
       "RERA-registered real estate broker in Nagpur specialising in residential plots across Wardha Road, Besa, MIHAN corridor, and Shankarpur.",
     url: siteUrl,
     telephone: "+91-93593-06709",
-    email: "[PLACEHOLDER: contact@yourdomain.com]",
+    // email, streetAddress, postalCode, geo, sameAs — omitted pending owner confirmation
     address: {
       "@type": "PostalAddress",
-      streetAddress: "[PLACEHOLDER: Office Address Line 1]",
       addressLocality: "Nagpur",
       addressRegion: "Maharashtra",
-      postalCode: "[PLACEHOLDER: 440XXX]",
       addressCountry: "IN",
-    },
-    geo: {
-      "@type": "GeoCoordinates",
-      latitude: "[PLACEHOLDER: 21.XXXX]",
-      longitude: "[PLACEHOLDER: 79.XXXX]",
     },
     openingHours: "Mo-Sa 09:00-19:00",
     areaServed: {
@@ -35,11 +33,6 @@ export function localBusinessSchema() {
       name: "Nagpur",
     },
     priceRange: "₹₹",
-    sameAs: [
-      "[PLACEHOLDER: Google Business Profile URL]",
-      "[PLACEHOLDER: Facebook URL]",
-      "[PLACEHOLDER: LinkedIn URL]",
-    ],
   };
 }
 
@@ -56,24 +49,34 @@ interface ProjectSchemaOptions {
 }
 
 export function realEstateListingSchema(opts: ProjectSchemaOptions) {
+  // Only emit price offers when real prices are known (priceMin > 0)
+  const hasPrice = opts.priceMin > 0 && opts.priceMax > 0;
+
   return {
     "@context": "https://schema.org",
     "@type": "Product",
     name: opts.name,
     description: opts.description,
-    image: opts.image,
+    // image must be an absolute URL for schema.org validators
+    ...(opts.image && !opts.image.startsWith("[")
+      ? { image: opts.image.startsWith("http") ? opts.image : siteUrl + opts.image }
+      : {}),
     url: opts.url,
-    offers: {
-      "@type": "AggregateOffer",
-      priceCurrency: "INR",
-      lowPrice: opts.priceMin * 100000, // convert lakhs to rupees
-      highPrice: opts.priceMax * 100000,
-      offerCount: 1,
-      availability:
-        opts.status === "ready-to-move"
-          ? "https://schema.org/InStock"
-          : "https://schema.org/PreOrder",
-    },
+    ...(hasPrice
+      ? {
+          offers: {
+            "@type": "AggregateOffer",
+            priceCurrency: "INR",
+            lowPrice: opts.priceMin * 100000, // convert lakhs to rupees
+            highPrice: opts.priceMax * 100000,
+            offerCount: 1,
+            availability:
+              opts.status === "ready-to-move"
+                ? "https://schema.org/InStock"
+                : "https://schema.org/PreOrder",
+          },
+        }
+      : {}),
     brand: {
       "@type": "Brand",
       name: "Mauli Infra Plots",

@@ -4,7 +4,6 @@ import { buildMetadata } from "@/lib/metadata";
 import { testimonials } from "@/data/testimonials";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { VideoShowcase } from "@/components/sections/VideoShowcase";
-import { SITE_URL } from "@/lib/constants";
 
 export const metadata = buildMetadata({
   title: "About Us — RERA-Registered Real Estate Broker in Nagpur",
@@ -13,52 +12,13 @@ export const metadata = buildMetadata({
   path: "/about",
 });
 
-const siteUrl = SITE_URL;
-
-
-/**
- * VideoObject JSON-LD for both showcase videos.
- * Injected as a native <script> tag — the Next.js docs explicitly
- * recommend a native <script> (not next/script) for JSON-LD since
- * it is structured data, not executable JS.
- */
-const videoSchemaJsonLd = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "VideoObject",
-      name: "[PLACEHOLDER — confirm video title, e.g. 'Site Walkthrough']",
-      description:
-        "[PLACEHOLDER — confirm video description for SEO]",
-      thumbnailUrl: `${siteUrl}/images/posters/showcase-1-poster.jpg`,
-      uploadDate: "2026-10-01",
-      contentUrl: `${siteUrl}/showcase-1.mp4`,
-    },
-    {
-      "@type": "VideoObject",
-      name: "[PLACEHOLDER — confirm video title, e.g. 'Project Tour']",
-      description:
-        "[PLACEHOLDER — confirm video description for SEO]",
-      thumbnailUrl: `${siteUrl}/images/posters/showcase-2-poster.jpg`,
-      uploadDate: "2026-10-01",
-      contentUrl: `${siteUrl}/showcase-2.mp4`,
-    },
-  ],
-};
+// NOTE: VideoObject JSON-LD omitted pending confirmation of video titles and descriptions.
 
 export default function AboutPage() {
   return (
     <>
-      {/* VideoObject JSON-LD — native <script> per Next.js JSON-LD guide */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(videoSchemaJsonLd).replace(/</g, "\\u003c"),
-        }}
-      />
-
       <div className="pt-24 min-h-screen bg-neutral">
-        {/* ── Header ── */}
+        {/* Header */}
         <section className="bg-neutral pt-8 pb-10 px-4 sm:px-6 lg:px-8 border-b border-charcoal/10">
           <div className="mx-auto max-w-5xl text-center">
             <AnimatedSection>
@@ -66,13 +26,12 @@ export default function AboutPage() {
                 About Us
               </p>
               <h1 className="font-serif text-4xl sm:text-5xl font-bold text-charcoal mb-4">
-                Nagpur&apos;s Real Estate Experts,
-                <br />Since [PLACEHOLDER: YEAR]
+                Nagpur&apos;s Real Estate Experts
               </h1>
               <p className="text-charcoal/70 text-lg max-w-2xl mx-auto leading-relaxed">
                 We started with a simple belief: that buying land in Nagpur should be
                 straightforward, transparent, and stress-free. 7 years on, 8,000+
-                families have put their trust in us — and kept it.
+                families have put their trust in us &mdash; and kept it.
               </p>
             </AnimatedSection>
           </div>
@@ -80,7 +39,7 @@ export default function AboutPage() {
 
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
 
-          {/* ── Video Showcase ── */}
+          {/* Video Showcase */}
           <AnimatedSection>
             <div className="mb-20">
               <div className="text-center mb-10">
@@ -91,7 +50,7 @@ export default function AboutPage() {
                   Our Projects in Action
                 </h2>
                 <p className="text-charcoal/60 mt-3 max-w-xl mx-auto">
-                  Watch walkthroughs of our developments — real sites, real plots,
+                  Watch walkthroughs of our developments &mdash; real sites, real plots,
                   no stock footage.
                 </p>
               </div>
@@ -105,7 +64,7 @@ export default function AboutPage() {
             </div>
           </AnimatedSection>
 
-          {/* ── Trust stat cards — matched to home page trust stats ── */}
+          {/* Trust stat cards — matched to home page trust stats */}
           <AnimatedSection>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
               {[
@@ -143,7 +102,7 @@ export default function AboutPage() {
             </div>
           </AnimatedSection>
 
-          {/* ── Testimonials ── */}
+          {/* Testimonials */}
           <AnimatedSection>
             <div className="mb-20">
               <h2 className="font-serif text-3xl font-bold text-charcoal mb-8 text-center">
@@ -170,7 +129,7 @@ export default function AboutPage() {
             </div>
           </AnimatedSection>
 
-          {/* ── CTA ── */}
+          {/* CTA */}
           <AnimatedSection>
             <div className="mt-4 text-center bg-navy rounded-2xl p-10">
               <h2 className="font-serif text-3xl font-bold text-white mb-4">

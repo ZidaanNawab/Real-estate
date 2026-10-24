@@ -16,7 +16,7 @@ import { HeroBackgroundVideo } from "@/components/home/HeroBackgroundVideo";
 export const metadata = buildMetadata({
   title: "Real Estate Broker in Nagpur | Verified Plots & Properties",
   description:
-    "Trusted RERA-registered real estate broker in Nagpur since [YEAR]. Browse verified residential plots in Wardha Road, Besa, MIHAN corridor & Shankarpur. Expert guidance, zero hidden charges.",
+    "Trusted RERA-registered real estate broker in Nagpur. Browse verified residential plots in Wardha Road, Besa, MIHAN corridor & Shankarpur. Expert guidance, zero hidden charges.",
   path: "/",
 });
 
@@ -32,26 +32,24 @@ const trustStats = [
 export default function HomePage() {
   // All projects fed into the slider — slider handles the visible-window logic
 
-
   return (
     <>
-      {/* ── HERO ── */}
+      {/* HERO */}
       <section
         className="relative min-h-screen flex items-center justify-center overflow-hidden bg-navy"
         aria-label="Hero section"
       >
-        {/* ── Hero background video (desktop + mobile, muted, decorative) ── */}
+        {/* Hero background video (desktop + mobile, muted, decorative) */}
         <div className="absolute inset-0">
           <HeroBackgroundVideo />
         </div>
-
 
         {/* Hero content — animates in-place (opacity only, no position shift) */}
         <div className="relative z-10 mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 text-center py-32">
           {/* Trust badge */}
           <div className="inline-flex items-center gap-2 bg-orange/20 border border-orange/40 text-orange rounded-full px-4 py-1.5 text-sm font-semibold mb-6 animate-fade-in">
             <Shield size={14} />
-            RERA Registered · Nagpur&apos;s Trusted Broker
+            RERA Registered &middot; Nagpur&apos;s Trusted Broker
           </div>
 
           <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.1] mb-6 animate-fade-in">
@@ -61,8 +59,8 @@ export default function HomePage() {
           </h1>
 
           <p className="text-white/75 text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed animate-fade-in">
-            Verified residential plots across Wardha Road, Besa, MIHAN corridor &
-            Shankarpur. Expert guidance from site visit to registration — no surprises,
+            Verified residential plots across Wardha Road, Besa, MIHAN corridor &amp;
+            Shankarpur. Expert guidance from site visit to registration &mdash; no surprises,
             no hidden charges.
           </p>
 
@@ -89,7 +87,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── TRUST STATS BAND ── */}
+      {/* TRUST STATS BAND */}
       <section
         className="bg-navy py-10"
         aria-label="Trust statistics"
@@ -110,7 +108,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── FEATURED PROJECTS ── */}
+      {/* FEATURED PROJECTS */}
       <section className="py-20 bg-neutral" aria-labelledby="projects-heading">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
@@ -135,7 +133,7 @@ export default function HomePage() {
             </div>
           </AnimatedSection>
 
-          {/* px-6 pads the slider so its ±-left/right-5 arrow buttons don't clip */}
+          {/* px-6 pads the slider so the arrow buttons don&apos;t clip */}
           <div className="px-6">
             <ProjectCarousel projects={projects} />
           </div>
@@ -143,7 +141,7 @@ export default function HomePage() {
       </section>
 
 
-      {/* ── UPCOMING PROJECTS ── */}
+      {/* UPCOMING PROJECTS */}
       <section className="py-20 bg-white" aria-labelledby="upcoming-heading">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
@@ -186,7 +184,7 @@ export default function HomePage() {
               <AnimatedSection key={project.name} delay={i * 0.1}>
                 <article className="group rounded-2xl overflow-hidden bg-neutral border border-charcoal/10 shadow-sm flex flex-col">
 
-                  {/* Thumbnail — 16:9 aspect ratio, never clips */}
+                  {/* Thumbnail — 16:9 aspect ratio */}
                   <div className="relative w-full bg-navy/10 overflow-hidden flex-shrink-0" style={{ aspectRatio: "16 / 9" }}>
                     {/* Upcoming badge */}
                     <div className="absolute top-3 left-3 z-20">
@@ -218,7 +216,7 @@ export default function HomePage() {
                   <div className="px-4 pb-5 flex flex-col flex-1">
                     <div className="mt-auto pt-3">
                       <p className="text-xs text-charcoal/50 italic mb-4">
-                        Details launching soon — register your interest below.
+                        Details launching soon &mdash; register your interest below.
                       </p>
                     </div>
                     <Link href="/contact">
@@ -234,7 +232,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── LOCATIONS BAND ── */}
+      {/* LOCATIONS BAND */}
       <section className="py-20 bg-neutral" aria-labelledby="locations-heading">
 
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -250,7 +248,7 @@ export default function HomePage() {
                 Nagpur&apos;s Top Investment Corridors
               </h2>
               <p className="text-charcoal/60 mt-3 max-w-xl mx-auto">
-                Each area we work in has deep local expertise behind it — real data on
+                Each area we work in has deep local expertise behind it &mdash; real data on
                 connectivity, landmarks, and price trends, not generic filler.
               </p>
             </div>
@@ -290,7 +288,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── WHY CHOOSE US ── */}
+      {/* WHY CHOOSE US */}
       <section className="py-20 bg-neutral" aria-labelledby="why-heading">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
@@ -356,7 +354,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── TESTIMONIALS ── */}
+      {/* TESTIMONIALS */}
       <section className="py-20 bg-neutral" aria-labelledby="testimonials-heading">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
@@ -376,7 +374,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── CTA BANNER ── */}
+      {/* CTA BANNER */}
       <section className="py-20 bg-orange" aria-labelledby="cta-heading">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
           <AnimatedSection>
@@ -387,7 +385,7 @@ export default function HomePage() {
               Ready to find your plot in Nagpur?
             </h2>
             <p className="text-white/80 text-lg mb-8 max-w-xl mx-auto">
-              Talk to our experts today — we&apos;ll help you find the right project for
+              Talk to our experts today &mdash; we&apos;ll help you find the right project for
               your budget, timeline, and investment goals.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

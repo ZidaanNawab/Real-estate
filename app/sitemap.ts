@@ -2,9 +2,10 @@ import { MetadataRoute } from "next";
 import { projects } from "@/data/projects";
 import { locations } from "@/data/locations";
 import { posts } from "@/data/posts";
-import { SITE_URL } from "@/lib/constants";
+import { CANONICAL_SITE_URL } from "@/lib/constants";
 
-const siteUrl = SITE_URL;
+// Sitemap must always use the canonical production URL -- never localhost
+const siteUrl = CANONICAL_SITE_URL;
 
 /**
  * Genuine last-modified dates sourced from git history for each page group.

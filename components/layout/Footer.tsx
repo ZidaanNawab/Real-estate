@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Phone, Mail, MapPin, MessageCircle } from "lucide-react";
+import { Phone, MapPin, MessageCircle, Mail } from "lucide-react";
 import { locations } from "@/data/locations";
 import { projects } from "@/data/projects";
 
@@ -20,9 +20,6 @@ export function Footer() {
               Nagpur&apos;s trusted RERA-registered real estate broker. Specialising in
               verified residential plots across Wardha Road, Besa, MIHAN corridor,
               and Shankarpur.
-            </p>
-            <p className="text-xs text-white/40">
-              RERA Reg. No. [PLACEHOLDER]
             </p>
           </div>
 
@@ -86,20 +83,24 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Col 4: NAP contact */}
+          {/* Col 4: NAP contact — must be identical to contact page and GBP */}
           <div>
             <h3 className="text-sm font-semibold uppercase tracking-widest text-white/50 mb-4">
               Contact Us
             </h3>
-            {/* NAP block — must be identical to contact page and GBP */}
             <address className="not-italic flex flex-col gap-3">
               <div className="flex items-start gap-3">
                 <MapPin size={16} className="text-orange mt-0.5 shrink-0" />
-                <span className="text-white/70 text-sm leading-relaxed">
-                  [PLACEHOLDER: Office Address]
-                  <br />
-                  Nagpur, Maharashtra [PLACEHOLDER: 440XXX]
-                </span>
+                <a
+                  href="https://share.google/ZZbGqGjkfQXzCRqRh"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white/70 hover:text-orange transition-colors text-sm leading-relaxed"
+                >
+                  Prince Castle, Plot No. 105,<br />
+                  Opp. Madhav Netralay, Gajanan Nagar,<br />
+                  Wardha Road, Nagpur &ndash; 440015
+                </a>
               </div>
               <div className="flex items-center gap-3">
                 <Phone size={16} className="text-orange shrink-0" />
@@ -108,6 +109,15 @@ export function Footer() {
                   className="text-white/70 hover:text-orange transition-colors text-sm"
                 >
                   +91 93593 06709
+                </a>
+              </div>
+              <div className="flex items-center gap-3">
+                <Mail size={16} className="text-orange shrink-0" />
+                <a
+                  href="mailto:Mauliinfra06@gmail.com"
+                  className="text-white/70 hover:text-orange transition-colors text-sm"
+                >
+                  Mauliinfra06@gmail.com
                 </a>
               </div>
               <div className="flex items-center gap-3">
@@ -121,15 +131,6 @@ export function Footer() {
                   WhatsApp Us
                 </a>
               </div>
-              <div className="flex items-center gap-3">
-                <Mail size={16} className="text-orange shrink-0" />
-                <a
-                  href="mailto:[PLACEHOLDER]"
-                  className="text-white/70 hover:text-orange transition-colors text-sm"
-                >
-                  [PLACEHOLDER: email@domain.com]
-                </a>
-              </div>
             </address>
           </div>
         </div>
@@ -137,7 +138,7 @@ export function Footer() {
         {/* Bottom bar */}
         <div className="border-t border-white/10 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-white/40 text-xs">
-            © {new Date().getFullYear()} Mauli Infra Plots. All rights reserved.
+            &copy; {new Date().getFullYear()} Mauli Infra Plots. All rights reserved.
           </p>
           <p className="text-white/40 text-xs">
             All prices are indicative. Verify all details before purchase.

@@ -11,7 +11,7 @@ import { ProjectCard } from "@/components/sections/ProjectCard";
 import { EnquiryForm } from "@/components/sections/EnquiryForm";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { FAQAccordion } from "./FAQAccordion";
-import { SITE_URL } from "@/lib/constants";
+import { CANONICAL_SITE_URL } from "@/lib/constants";
 
 
 interface PageProps {
@@ -35,7 +35,8 @@ export async function generateMetadata({ params }: PageProps) {
   });
 }
 
-const siteUrl = SITE_URL;
+// Breadcrumb and schema URLs must always be canonical
+const siteUrl = CANONICAL_SITE_URL;
 
 
 export default async function LocationPage({ params }: PageProps) {
@@ -48,7 +49,8 @@ export default async function LocationPage({ params }: PageProps) {
   const faqJsonLd = faqSchema(loc.faqs);
   const crumbJsonLd = breadcrumbSchema([
     { name: "Home", url: siteUrl },
-    { name: "Locations", url: `${siteUrl}/locations` },
+    // "Locations" hub omitted from breadcrumb -- /locations returns 404
+    // until app/locations/page.tsx is created; restore the step at that point.
     { name: loc.name, url: `${siteUrl}/locations/${area}` },
   ]);
 

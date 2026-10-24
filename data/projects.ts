@@ -1,5 +1,5 @@
 // Data file: all projects
-// Replace [PLACEHOLDER] values with real client data
+// Fields marked "// TODO" require the owner to supply verified real-world data.
 
 export interface Project {
   id: string;
@@ -9,11 +9,11 @@ export interface Project {
   location: string;
   area: string; // matches /locations/[area] slugs
   status: "ongoing" | "new-launch" | "ready-to-move";
-  priceMin: number; // in lakhs
-  priceMax: number; // in lakhs
+  priceMin: number; // in lakhs — 0 means price not yet published
+  priceMax: number; // in lakhs — 0 means price not yet published
   plotSizes: string[]; // e.g. ["120 sq.yd", "200 sq.yd"]
-  totalPlots: number;
-  availablePlots: number;
+  totalPlots: number;   // 0 means figure not yet published
+  availablePlots: number; // 0 means figure not yet published
   heroImage: string;
   images: string[];
   amenities: string[];
@@ -22,7 +22,7 @@ export interface Project {
   reraNumber: string;
   description: string;
   priceTable: { size: string; pricePerSqFt: string; totalRange: string }[];
-  brochureUrl?: string; // e.g. "/brochures/mauli-templetown-40.pdf" — leave undefined if no PDF uploaded yet
+  brochureUrl?: string;
 }
 
 
@@ -31,180 +31,144 @@ export const projects: Project[] = [
     id: "1",
     slug: "mauli-templetown-40",
     name: "Mauli Templetown 40",
-    tagline: "[PLACEHOLDER — add project tagline]",
-    location: "[PLACEHOLDER — add location, Nagpur]",
-    area: "wardha-road", // [PLACEHOLDER — confirm area slug]
+    tagline: "", // TODO: confirm tagline with owner
+    location: "Nagpur", // TODO: confirm exact location with owner
+    area: "wardha-road",
     status: "ongoing",
-    priceMin: 0, // [PLACEHOLDER — confirm price]
-    priceMax: 0, // [PLACEHOLDER — confirm price]
-    plotSizes: ["[PLACEHOLDER]"],
-    totalPlots: 0, // [PLACEHOLDER]
-    availablePlots: 0, // [PLACEHOLDER]
+    priceMin: 0, // TODO: confirm price with owner
+    priceMax: 0, // TODO: confirm price with owner
+    plotSizes: [], // TODO: confirm plot sizes with owner
+    totalPlots: 0, // TODO: confirm with owner
+    availablePlots: 0, // TODO: confirm with owner
     heroImage: "/mauli-templetown.webp",
     images: ["/mauli-templetown.webp"],
-    amenities: ["[PLACEHOLDER — add amenities]"],
-    highlights: ["[PLACEHOLDER — add highlights]"],
-    mapEmbedUrl: "[PLACEHOLDER — add Google Maps embed URL]",
-    reraNumber: "[PLACEHOLDER: RERA-REG-XXXX]",
-    description: "[PLACEHOLDER — add project description]",
+    amenities: [], // TODO: add amenities
+    highlights: [], // TODO: add highlights
+    mapEmbedUrl: "", // TODO: add Google Maps embed URL
+    reraNumber: "", // TODO: add MahaRERA registration number
+    description: "Mauli Templetown 40 is a RERA-registered residential plot project in Nagpur. Contact us for current availability and pricing.",
     brochureUrl: "/brochures/mauli-templetown-40.pdf",
-    priceTable: [
-      {
-        size: "[PLACEHOLDER]",
-        pricePerSqFt: "₹[PLACEHOLDER]",
-        totalRange: "₹[PLACEHOLDER]",
-      },
-    ],
+    priceTable: [], // TODO: add price table when prices are confirmed
   },
 
   {
     id: "2",
     slug: "mauli-crystal-35",
     name: "Mauli Crystal 35",
-    tagline: "[PLACEHOLDER — add project tagline]",
-    location: "[PLACEHOLDER — add location, Nagpur]",
-    area: "besa", // [PLACEHOLDER — confirm area slug]
+    tagline: "", // TODO: confirm tagline with owner
+    location: "Nagpur", // TODO: confirm exact location with owner
+    area: "besa",
     status: "ongoing",
-    priceMin: 0, // [PLACEHOLDER — confirm price]
-    priceMax: 0, // [PLACEHOLDER — confirm price]
-    plotSizes: ["[PLACEHOLDER]"],
-    totalPlots: 0, // [PLACEHOLDER]
-    availablePlots: 0, // [PLACEHOLDER]
+    priceMin: 0, // TODO: confirm price with owner
+    priceMax: 0, // TODO: confirm price with owner
+    plotSizes: [], // TODO: confirm plot sizes with owner
+    totalPlots: 0, // TODO: confirm with owner
+    availablePlots: 0, // TODO: confirm with owner
     heroImage: "/mauli-crystal.webp",
     images: ["/mauli-crystal.webp"],
-    amenities: ["[PLACEHOLDER — add amenities]"],
-    highlights: ["[PLACEHOLDER — add highlights]"],
-    mapEmbedUrl: "[PLACEHOLDER — add Google Maps embed URL]",
-    reraNumber: "[PLACEHOLDER: RERA-REG-XXXX]",
-    description: "[PLACEHOLDER — add project description]",
+    amenities: [], // TODO: add amenities
+    highlights: [], // TODO: add highlights
+    mapEmbedUrl: "", // TODO: add Google Maps embed URL
+    reraNumber: "", // TODO: add MahaRERA registration number
+    description: "Mauli Crystal 35 is a RERA-registered residential plot project in Nagpur. Contact us for current availability and pricing.",
     brochureUrl: "/brochures/mauli-crystal-35.pdf",
-    priceTable: [
-      {
-        size: "[PLACEHOLDER]",
-        pricePerSqFt: "₹[PLACEHOLDER]",
-        totalRange: "₹[PLACEHOLDER]",
-      },
-    ],
+    priceTable: [], // TODO: add price table when prices are confirmed
   },
 
   {
     id: "3",
     slug: "mauli-niwasa-36-37",
     name: "Mauli Niwasa 36/37",
-    tagline: "[PLACEHOLDER — add project tagline]",
-    location: "[PLACEHOLDER — add location, Nagpur]",
-    area: "mihan-corridor", // [PLACEHOLDER — confirm area slug]
+    tagline: "", // TODO: confirm tagline with owner
+    location: "Nagpur", // TODO: confirm exact location with owner
+    area: "mihan-corridor",
     status: "ongoing",
-    priceMin: 0, // [PLACEHOLDER — confirm price]
-    priceMax: 0, // [PLACEHOLDER — confirm price]
-    plotSizes: ["[PLACEHOLDER]"],
-    totalPlots: 0, // [PLACEHOLDER]
-    availablePlots: 0, // [PLACEHOLDER]
+    priceMin: 0, // TODO: confirm price with owner
+    priceMax: 0, // TODO: confirm price with owner
+    plotSizes: [], // TODO: confirm plot sizes with owner
+    totalPlots: 0, // TODO: confirm with owner
+    availablePlots: 0, // TODO: confirm with owner
     heroImage: "/mauli-niwasa.webp",
     images: ["/mauli-niwasa.webp"],
-    amenities: ["[PLACEHOLDER — add amenities]"],
-    highlights: ["[PLACEHOLDER — add highlights]"],
-    mapEmbedUrl: "[PLACEHOLDER — add Google Maps embed URL]",
-    reraNumber: "[PLACEHOLDER: RERA-REG-XXXX]",
-    description: "[PLACEHOLDER — add project description]",
+    amenities: [], // TODO: add amenities
+    highlights: [], // TODO: add highlights
+    mapEmbedUrl: "", // TODO: add Google Maps embed URL
+    reraNumber: "", // TODO: add MahaRERA registration number
+    description: "Mauli Niwasa 36/37 is a RERA-registered residential plot project in Nagpur. Contact us for current availability and pricing.",
     brochureUrl: "/brochures/mauli-niwasa-36-37.pdf",
-    priceTable: [
-      {
-        size: "[PLACEHOLDER]",
-        pricePerSqFt: "₹[PLACEHOLDER]",
-        totalRange: "₹[PLACEHOLDER]",
-      },
-    ],
+    priceTable: [], // TODO: add price table when prices are confirmed
   },
 
   {
     id: "4",
     slug: "mauli-infinity-39",
     name: "Mauli Infinity 39",
-    tagline: "[PLACEHOLDER — add project tagline]",
-    location: "[PLACEHOLDER — add location, Nagpur]",
-    area: "shankarpur", // [PLACEHOLDER — confirm area slug]
+    tagline: "", // TODO: confirm tagline with owner
+    location: "Nagpur", // TODO: confirm exact location with owner
+    area: "shankarpur",
     status: "ongoing",
-    priceMin: 0, // [PLACEHOLDER — confirm price]
-    priceMax: 0, // [PLACEHOLDER — confirm price]
-    plotSizes: ["[PLACEHOLDER]"],
-    totalPlots: 0, // [PLACEHOLDER]
-    availablePlots: 0, // [PLACEHOLDER]
+    priceMin: 0, // TODO: confirm price with owner
+    priceMax: 0, // TODO: confirm price with owner
+    plotSizes: [], // TODO: confirm plot sizes with owner
+    totalPlots: 0, // TODO: confirm with owner
+    availablePlots: 0, // TODO: confirm with owner
     heroImage: "/mauli-infinity.webp",
     images: ["/mauli-infinity.webp"],
-    amenities: ["[PLACEHOLDER — add amenities]"],
-    highlights: ["[PLACEHOLDER — add highlights]"],
-    mapEmbedUrl: "[PLACEHOLDER — add Google Maps embed URL]",
-    reraNumber: "[PLACEHOLDER: RERA-REG-XXXX]",
-    description: "[PLACEHOLDER — add project description]",
+    amenities: [], // TODO: add amenities
+    highlights: [], // TODO: add highlights
+    mapEmbedUrl: "", // TODO: add Google Maps embed URL
+    reraNumber: "", // TODO: add MahaRERA registration number
+    description: "Mauli Infinity 39 is a RERA-registered residential plot project in Nagpur. Contact us for current availability and pricing.",
     brochureUrl: "/brochures/mauli-infinity-39.pdf",
-    priceTable: [
-      {
-        size: "[PLACEHOLDER]",
-        pricePerSqFt: "₹[PLACEHOLDER]",
-        totalRange: "₹[PLACEHOLDER]",
-      },
-    ],
+    priceTable: [], // TODO: add price table when prices are confirmed
   },
 
   {
     id: "5",
     slug: "mauli-upwan-38",
     name: "Mauli Upwan 38",
-    tagline: "[PLACEHOLDER — add project tagline]",
-    location: "[PLACEHOLDER — add location, Nagpur]",
-    area: "wardha-road", // [PLACEHOLDER — confirm area slug]
+    tagline: "", // TODO: confirm tagline with owner
+    location: "Nagpur", // TODO: confirm exact location with owner
+    area: "wardha-road",
     status: "new-launch",
-    priceMin: 0, // [PLACEHOLDER — confirm price]
-    priceMax: 0, // [PLACEHOLDER — confirm price]
-    plotSizes: ["[PLACEHOLDER]"],
-    totalPlots: 0, // [PLACEHOLDER]
-    availablePlots: 0, // [PLACEHOLDER]
+    priceMin: 0, // TODO: confirm price with owner
+    priceMax: 0, // TODO: confirm price with owner
+    plotSizes: [], // TODO: confirm plot sizes with owner
+    totalPlots: 0, // TODO: confirm with owner
+    availablePlots: 0, // TODO: confirm with owner
     heroImage: "/mauli-upwan.webp",
     images: ["/mauli-upwan.webp"],
-    amenities: ["[PLACEHOLDER — add amenities]"],
-    highlights: ["[PLACEHOLDER — add highlights]"],
-    mapEmbedUrl: "[PLACEHOLDER — add Google Maps embed URL]",
-    reraNumber: "[PLACEHOLDER: RERA-REG-XXXX]",
-    description: "[PLACEHOLDER — add project description]",
+    amenities: [], // TODO: add amenities
+    highlights: [], // TODO: add highlights
+    mapEmbedUrl: "", // TODO: add Google Maps embed URL
+    reraNumber: "", // TODO: add MahaRERA registration number
+    description: "Mauli Upwan 38 is a RERA-registered residential plot project in Nagpur. Contact us for current availability and pricing.",
     brochureUrl: "/brochures/mauli-upwan-38.pdf",
-    priceTable: [
-      {
-        size: "[PLACEHOLDER]",
-        pricePerSqFt: "₹[PLACEHOLDER]",
-        totalRange: "₹[PLACEHOLDER]",
-      },
-    ],
+    priceTable: [], // TODO: add price table when prices are confirmed
   },
 
   {
     id: "6",
-    slug: "mauli-town-21",
-    name: "Mauli Town 21",
-    tagline: "[PLACEHOLDER — add project tagline]",
-    location: "[PLACEHOLDER — add location, Nagpur]",
-    area: "besa", // [PLACEHOLDER — confirm area slug]
+    slug: "mauli-sansara",
+    name: "Mauli Sansara",
+    tagline: "", // TODO: confirm tagline with owner
+    location: "Nagpur", // TODO: confirm exact location with owner
+    area: "wardha-road",
     status: "ready-to-move",
-    priceMin: 0, // [PLACEHOLDER — confirm price]
-    priceMax: 0, // [PLACEHOLDER — confirm price]
-    plotSizes: ["[PLACEHOLDER]"],
-    totalPlots: 0, // [PLACEHOLDER]
-    availablePlots: 0, // [PLACEHOLDER]
-    heroImage: "[PLACEHOLDER — add project image: /mauli-town-21.webp]",
-    images: ["[PLACEHOLDER — add project image]"],
-    amenities: ["[PLACEHOLDER — add amenities]"],
-    highlights: ["[PLACEHOLDER — add highlights]"],
-    mapEmbedUrl: "[PLACEHOLDER — add Google Maps embed URL]",
-    reraNumber: "[PLACEHOLDER: RERA-REG-XXXX]",
-    description: "[PLACEHOLDER — add project description]",
-    // brochureUrl: "/brochures/mauli-town-21.pdf", // Uncomment once PDF is added to public/brochures/
-    priceTable: [
-      {
-        size: "[PLACEHOLDER]",
-        pricePerSqFt: "₹[PLACEHOLDER]",
-        totalRange: "₹[PLACEHOLDER]",
-      },
-    ],
+    priceMin: 0, // TODO: confirm price with owner
+    priceMax: 0, // TODO: confirm price with owner
+    plotSizes: [], // TODO: confirm plot sizes with owner
+    totalPlots: 0, // TODO: confirm with owner
+    availablePlots: 0, // TODO: confirm with owner
+    heroImage: "/mauli-sansara.jpeg",
+    images: ["/mauli-sansara.jpeg"],
+    amenities: [], // TODO: add amenities
+    highlights: [], // TODO: add highlights
+    mapEmbedUrl: "", // TODO: add Google Maps embed URL
+    reraNumber: "", // TODO: add MahaRERA registration number
+    description: "Mauli Sansara is a RERA-registered residential plot project in Nagpur. Contact us for current availability and pricing.",
+    brochureUrl: "/mauli-sansara.pdf",
+    priceTable: [], // TODO: add price table when prices are confirmed
   },
 ];
 
@@ -224,5 +188,3 @@ export const statusLabels: Record<ProjectStatus, string> = {
   ongoing: "Ongoing",
   "ready-to-move": "Ready to Move",
 };
-
-

@@ -1,7 +1,8 @@
 import { MetadataRoute } from "next";
-import { SITE_URL } from "@/lib/constants";
+import { CANONICAL_SITE_URL } from "@/lib/constants";
 
-const siteUrl = SITE_URL;
+// robots.txt sitemap reference must be canonical -- never localhost
+const siteUrl = CANONICAL_SITE_URL;
 
 export default function robots(): MetadataRoute.Robots {
   return {

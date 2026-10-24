@@ -33,7 +33,17 @@ export async function generateMetadata({ params }: PageProps) {
 
   return buildMetadata({
     title: `${project.name} — Residential Plots in ${project.location}`,
-    description: `${project.tagline}. ${project.availablePlots} plots available. Price range: ${formatPriceRange(project.priceMin, project.priceMax)}. RERA registered.`,
+    description: (() => {
+      // When tagline is confirmed by owner, lead with it.
+      // When blank (pending), fall back to the project description field.
+      const priceClause = project.priceMin > 0 && project.priceMax > 0
+        ? ` Price range: ${formatPriceRange(project.priceMin, project.priceMax)}.` : "";
+      const availClause = project.availablePlots > 0 ? ` ${project.availablePlots} plots available.` : "";
+      const base = project.tagline
+        ? `${project.tagline}.${availClause}${priceClause} RERA registered. Contact us for details.`
+        : `${project.description}`;
+      return base;
+    })(),
     path: `/projects/${slug}`,
     image: project.heroImage,
   });
@@ -120,26 +130,37 @@ export default async function ProjectDetailPage({ params }: PageProps) {
                   </h2>
                   <p className="text-charcoal/70 leading-relaxed">{project.description}</p>
 
+                  {/* Only render stats when we have verified values */}
+                  {(project.priceMin > 0 || project.totalPlots > 0 || project.reraNumber) && (
                   <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-4 pt-6 border-t border-charcoal/10">
+                    {project.priceMin > 0 && project.priceMax > 0 && (
                     <div>
                       <p className="text-xs text-charcoal/50 uppercase tracking-wide mb-1">Price Range</p>
                       <p className="font-serif text-lg font-bold text-navy">
                         {formatPriceRange(project.priceMin, project.priceMax)}
                       </p>
                     </div>
+                    )}
+                    {project.totalPlots > 0 && (
                     <div>
                       <p className="text-xs text-charcoal/50 uppercase tracking-wide mb-1">Total Plots</p>
                       <p className="font-bold text-charcoal">{project.totalPlots}</p>
                     </div>
+                    )}
+                    {project.availablePlots > 0 && (
                     <div>
                       <p className="text-xs text-charcoal/50 uppercase tracking-wide mb-1">Available</p>
                       <p className="font-bold text-orange">{project.availablePlots}</p>
                     </div>
+                    )}
+                    {project.reraNumber && (
                     <div>
                       <p className="text-xs text-charcoal/50 uppercase tracking-wide mb-1">RERA No.</p>
                       <p className="font-medium text-charcoal text-sm">{project.reraNumber}</p>
                     </div>
+                    )}
                   </div>
+                  )}
                 </div>
               </AnimatedSection>
 
@@ -151,7 +172,8 @@ export default async function ProjectDetailPage({ params }: PageProps) {
                 </div>
               </AnimatedSection>
 
-              {/* Pricing table */}
+              {/* Pricing table — only shown when data is available */}
+              {project.priceTable.length > 0 && (
               <AnimatedSection>
                 <div className="bg-white rounded-2xl p-6 border border-charcoal/10">
                   <h2 className="font-serif text-2xl font-bold text-charcoal mb-4">
@@ -197,8 +219,10 @@ export default async function ProjectDetailPage({ params }: PageProps) {
                   </p>
                 </div>
               </AnimatedSection>
+              )}
 
-              {/* Highlights */}
+              {/* Highlights — shown only when data is available */}
+              {project.highlights.length > 0 && (
               <AnimatedSection>
                 <div className="bg-white rounded-2xl p-6 border border-charcoal/10">
                   <h2 className="font-serif text-2xl font-bold text-charcoal mb-4">
@@ -214,8 +238,10 @@ export default async function ProjectDetailPage({ params }: PageProps) {
                   </ul>
                 </div>
               </AnimatedSection>
+              )}
 
-              {/* Amenities */}
+              {/* Amenities — shown only when data is available */}
+              {project.amenities.length > 0 && (
               <AnimatedSection>
                 <div className="bg-white rounded-2xl p-6 border border-charcoal/10">
                   <h2 className="font-serif text-2xl font-bold text-charcoal mb-4">
@@ -231,8 +257,10 @@ export default async function ProjectDetailPage({ params }: PageProps) {
                   </ul>
                 </div>
               </AnimatedSection>
+              )}
 
-              {/* Map */}
+              {/* Map — shown only when embed URL is available */}
+              {project.mapEmbedUrl && (
               <AnimatedSection>
                 <div className="bg-white rounded-2xl p-6 border border-charcoal/10">
                   <h2 className="font-serif text-2xl font-bold text-charcoal mb-4">
@@ -250,6 +278,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
                   </div>
                 </div>
               </AnimatedSection>
+              )}
 
               {/* Internal links */}
               <AnimatedSection>
@@ -306,11 +335,11 @@ export default async function ProjectDetailPage({ params }: PageProps) {
 
                     <p className="text-white/70 text-sm mb-3">Or reach us directly:</p>
                     <a
-                      href="tel:[PLACEHOLDER]"
+                      href="tel:+919359306709"
                       className="flex items-center justify-center gap-2 text-white font-semibold hover:text-orange transition-colors"
                     >
                       <Phone size={18} />
-                      [PLACEHOLDER: +91-XXXXXXXXXX]
+                      +91 93593 06709
                     </a>
                   </div>
                 </AnimatedSection>
